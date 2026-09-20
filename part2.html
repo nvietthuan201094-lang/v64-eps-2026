@@ -619,6 +619,23 @@
                     ✔️</button>
             </div>
         </form>
+        <!-- MÀN HÌNH XÁC NHẬN NỘP BÀI THÀNH CÔNG (HIỆN RA SAU KHI NỘP) -->
+        <div id="successScreen"
+            style="display: none; text-align: center; background: white; border-radius: 16px; padding: 40px 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-top: 6px solid #059669; margin-top: 10px;">
+            <div style="font-size: 64px; color: #059669; margin-bottom: 12px; line-height: 1;">✅</div>
+            <h2 style="color: #065f46; font-size: 1.5rem; margin-bottom: 12px;">ĐÃ NỘP BÀI THÀNH CÔNG!</h2>
+            <p style="font-size: 1rem; color: #374151; line-height: 1.7; margin-bottom: 20px;">
+                Bạn đã hoàn thành trọn vẹn toàn bộ bài khảo sát <strong>V64 EPS 2026</strong>.<br>
+                Chân thành cảm ơn bạn đã dành thời gian chia sẻ rất thẳng thắn và tâm huyết. ❤️
+            </p>
+            <div
+                style="background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 8px; padding: 14px; color: #065f46; font-size: 0.9rem; margin-bottom: 24px; text-align: left; line-height: 1.6;">
+                🔒 <strong>Bảo mật:</strong> Phản hồi của bạn đã được mã hóa ẩn danh và lưu trực tiếp về hệ thống dữ
+                liệu của Phòng Nhân sự để xây dựng các chính sách cải thiện môi trường làm việc tốt hơn.
+            </div>
+            <p style="font-weight: bold; color: #b45309; letter-spacing: 2px; font-size: 1.05rem;">SANG · SẠCH · SÁNG 💛
+            </p>
+        </div>
     </div>
 
     <script>
@@ -687,18 +704,32 @@
 
         const form = document.getElementById('formPart2');
         const submitBtn = document.getElementById('btnSubmitP2');
+        const successScreen = document.getElementById('successScreen');
 
         form.addEventListener('submit', async function (e) {
             e.preventDefault();
 
+            // 1. KIỂM TRA NẾU CÒN CÂU HỎI BẮT BUỘC BỊ SÓT
+            if (!form.checkValidity()) {
+                const firstInvalid = form.querySelector(':invalid');
+                if (firstInvalid) {
+                    firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    firstInvalid.focus();
+                    alert("⚠️ Bạn ơi, vẫn còn câu hỏi chưa được hoàn thành ở phía trên. Vui lòng kiểm tra lại câu đang được chỉ tới nhé! ❤️");
+                }
+                return;
+            }
+
+            // 2. THU THẬP DỮ LIỆU
             const formData = new FormData(form);
             const data = {};
             formData.forEach((value, key) => {
                 data[key] = value;
             });
 
+            // Cập nhật trạng thái nút bấm khi đang gửi
             submitBtn.disabled = true;
-            submitBtn.textContent = "⏳ Đang ghi nhận kết quả cuối cùng...";
+            submitBtn.textContent = "⏳ Đang gửi dữ liệu về hệ thống...";
 
             try {
                 const response = await fetch(SCRIPT_URL, {
@@ -713,20 +744,27 @@
                 const res = await response.json();
 
                 if (res.status === "success") {
+                    // Xóa mã tạm trong máy
                     localStorage.removeItem("V64_SURVEY_ID");
                     localStorage.removeItem("V64_P1_DONE");
-                    alert("🎉 Cảm ơn bạn đã dành thời gian hoàn thành trọn vẹn bài khảo sát EPS 2026! ❤️");
-                    window.location.href = "index.html";
+                    localStorage.setItem("V64_COMPLETED_ALL", "true");
+
+                    // ẨN FORM VÀ HIỆN MÀN HÌNH CẢM ƠN TO RÕ
+                    form.style.display = "none";
+                    document.querySelector('.hdr').style.display = "none";
+                    successScreen.style.display = "block";
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+
                 } else {
-                    alert("Lỗi: " + res.message);
+                    alert("Có lỗi lưu dữ liệu: " + res.message);
                     submitBtn.disabled = false;
-                    submitBtn.textContent = "Hoàn Thành & Gửi Toàn Bộ Bài Khảo Sát ✔️";
+                    submitBtn.textContent = "Thử Gửi Lại Bài Khảo Sát";
                 }
             } catch (err) {
                 console.error(err);
-                alert("Lỗi kết nối mạng, vui lòng thử lại!");
+                alert("Lỗi kết nối mạng khi gửi bài. Bạn vui lòng kiểm tra lại mạng wifi/4G và bấm gửi lại nhé!");
                 submitBtn.disabled = false;
-                submitBtn.textContent = "Hoàn Thành & Gửi Toàn Bộ Bài Khảo Sát ✔️";
+                submitBtn.textContent = "Thử Gửi Lại Bài Khảo Sát";
             }
         });
     </script>
