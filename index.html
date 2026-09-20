@@ -3,324 +3,408 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>V64 EPS 2026 — Khảo sát Sức khỏe Doanh nghiệp (Phần 1/2)</title>
     <style>
         :root {
-            --primary-color: #d97706;
-            --bg-color: #fffbe3;
-            --card-bg: #ffffff;
-            --border-color: #e5e7eb;
-            --text-color: #1f2937;
+            --gold: #B8996A;
+            --dark: #1A1510;
+            --cream: #FAF8F5;
+            --grn: #059669;
+            --red: #DC2626;
+            --blu: #1D4ED8;
+            --org: #D97706;
+            --teal: #0F766E;
+            --pur: #7C3AED;
+            --slate: #475569;
+            --gl: #ECFDF5;
+            --bl: #EFF6FF;
+            --al: #FFFBEB;
+            --tl: #F0FDFA;
+            --pl: #F5F3FF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            background: #f0ede8;
+            color: #1A1510;
             line-height: 1.6;
-            margin: 0;
-            padding: 20px;
+            padding: 20px 12px
         }
 
-        .container {
-            max-width: 760px;
-            margin: 0 auto;
+        .wrap {
+            max-width: 860px;
+            margin: 0 auto
         }
 
-        .card {
-            background: var(--card-bg);
+        .hdr {
+            background: var(--dark);
+            padding: 32px 24px;
             border-radius: 12px;
-            padding: 24px;
             margin-bottom: 20px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-            border-top: 6px solid var(--primary-color);
+            text-align: center;
+            border-top: 6px solid var(--gold)
         }
 
-        .card-section {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-        }
-
-        h1 {
+        .hdr h1 {
+            color: var(--gold);
             font-size: 1.6rem;
-            margin-bottom: 12px;
-            color: #92400e;
+            font-family: 'Times New Roman', serif;
+            margin-bottom: 8px
         }
 
-        h2 {
-            font-size: 1.3rem;
-            margin-bottom: 12px;
-            color: #b45309;
-            border-bottom: 2px solid #fef3c7;
+        .hdr p {
+            color: #D1D5DB;
+            font-size: .92rem
+        }
+
+        .meta-chip {
+            background: rgba(184, 153, 106, .15);
+            color: var(--gold);
+            border: 1px solid rgba(184, 153, 106, .4);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: .8rem;
+            display: inline-block;
+            margin-top: 10px
+        }
+
+        .desc {
+            background: var(--tl);
+            border-left: 4px solid var(--teal);
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 20px;
+            font-size: .9rem
+        }
+
+        .section-block {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .06)
+        }
+
+        .sec-title {
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--dark);
+            border-bottom: 2px solid #F3F4F6;
             padding-bottom: 8px;
-        }
-
-        .notice {
-            background-color: #fff7ed;
-            border-left: 4px solid #f97316;
-            padding: 12px 16px;
-            margin: 16px 0;
-            border-radius: 4px;
-            font-size: 0.95rem;
+            margin-bottom: 16px
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 20px
         }
 
-        label.question-title {
-            display: block;
+        .q-title {
+            font-size: .92rem;
             font-weight: 600;
-            margin-bottom: 10px;
+            color: #1f2937;
+            margin-bottom: 8px
+        }
+
+        .q-sub {
+            font-size: .8rem;
+            color: var(--slate);
+            margin-bottom: 8px
         }
 
         .required {
-            color: #dc2626;
+            color: var(--red)
+        }
+
+        .r-badge {
+            background: #FEE2E2;
+            color: var(--red);
+            font-size: .7rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-right: 4px;
+            font-weight: bold
         }
 
         .radio-group,
         .checkbox-group {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px
         }
 
-        .radio-option,
-        .checkbox-option {
+        .radio-opt,
+        .check-opt {
             display: flex;
             align-items: center;
             gap: 10px;
+            font-size: .88rem;
             cursor: pointer;
+            padding: 6px 10px;
+            border-radius: 6px;
+            background: #f9fafb
         }
 
-        .scale-rating {
+        .radio-opt:hover,
+        .check-opt:hover {
+            background: #f3f4f6
+        }
+
+        .scale-wrap {
             display: flex;
             justify-content: space-between;
+            gap: 6px;
             overflow-x: auto;
-            padding: 10px 0;
-            gap: 8px;
+            padding: 8px 0
         }
 
         .scale-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            font-size: 0.85rem;
+            font-size: .82rem;
+            gap: 4px;
+            min-width: 32px;
+            cursor: pointer
         }
 
-        .scale-item input {
-            margin-bottom: 4px;
-        }
-
-        table.matrix-table {
+        table.matrix {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 10px;
-            font-size: 0.9rem;
+            margin-top: 8px;
+            font-size: .85rem
         }
 
-        table.matrix-table th,
-        table.matrix-table td {
-            border: 1px solid var(--border-color);
-            padding: 10px;
-            text-align: center;
+        table.matrix th,
+        table.matrix td {
+            border: 1px solid #E5E7EB;
+            padding: 8px 6px;
+            text-align: center
         }
 
-        table.matrix-table th:first-child,
-        table.matrix-table td:first-child {
+        table.matrix th:first-child,
+        table.matrix td:first-child {
             text-align: left;
-            width: 50%;
+            width: 45%
         }
 
         textarea,
         input[type="text"] {
             width: 100%;
             padding: 10px;
-            border: 1px solid #d1d5db;
+            border: 1px solid #D1D5DB;
             border-radius: 6px;
             box-sizing: border-box;
             font-family: inherit;
+            font-size: .9rem
         }
 
         textarea {
-            height: 90px;
-            resize: vertical;
+            height: 85px;
+            resize: vertical
         }
 
-        button.btn-submit {
-            background-color: var(--primary-color);
+        .btn-submit {
+            background: var(--gold);
             color: white;
             border: none;
-            padding: 14px 28px;
-            font-size: 1rem;
+            padding: 15px 30px;
+            font-size: 1.05rem;
             font-weight: bold;
             border-radius: 8px;
             cursor: pointer;
             width: 100%;
-            transition: background 0.2s;
+            transition: background .2s
         }
 
-        button.btn-submit:hover {
-            background-color: #b45309;
+        .btn-submit:hover {
+            background: #9e7f53
         }
 
-        button.btn-submit:disabled {
-            background-color: #9ca3af;
-            cursor: not-allowed;
+        .btn-submit:disabled {
+            background: #9ca3af;
+            cursor: not-allowed
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="card">
-            <h1>V64 EPS 2026(FN) — Khảo sát Sức khỏe Doanh nghiệp [Phần 1/2]</h1>
-            <p>🔒 <strong>BÀI KHẢO SÁT HOÀN TOÀN ẨN DANH</strong></p>
-            <p>Tên và thông tin nhận diện cá nhân không được ghi nhận. Kết quả chỉ dùng để giúp HR cải thiện môi trường
-                làm việc.</p>
-            <div class="notice">
-                ⏱ <strong>ĐÂY LÀ PHẦN 1/2</strong> — Thời gian hoàn thành: khoảng 10–12 phút.<br>
-                📌 Sau khi hoàn thành Phần 1, kết quả sẽ được lưu ngay và hệ thống tự động chuyển tiếp sang Phần 2/2.
-            </div>
+    <div class="wrap">
+        <div class="hdr">
+            <h1>V64 EPS 2026 — Khảo sát Sức khỏe Doanh nghiệp</h1>
+            <p>PHẦN 1/2 — TỰ ĐÁNH GIÁ CÁ NHÂN & MÔI TRƯỜNG LÀM VIỆC</p>
+            <span class="meta-chip">🔒 Khảo sát hoàn toàn ẩn danh · Khoảng 8–10 phút</span>
+        </div>
+
+        <div class="desc">
+            ⏱ <strong>ĐÂY LÀ PHẦN 1/2:</strong> Sau khi hoàn thành và bấm gửi ở cuối trang, hệ thống sẽ <strong>tự động
+                lưu an toàn</strong> dữ liệu phần này và chuyển bạn sang Phần 2/2 để tiếp tục.
         </div>
 
         <form id="formPart1">
             <!-- PHẦN A -->
-            <div class="card-section">
-                <h2>📋 PHẦN A — THÔNG TIN CƠ BẢN</h2>
+            <div class="section-block">
+                <div class="sec-title">📋 PHẦN A — THÔNG TIN CƠ BẢN</div>
+
                 <div class="form-group">
-                    <label class="question-title">Bạn đang làm việc tại bộ phận / vị trí nào? <span
-                            class="required">*</span></label>
+                    <div class="q-title">Bạn đang làm việc tại bộ phận / vị trí nào? <span class="required">*</span>
+                    </div>
                     <div class="radio-group">
-                        <label class="radio-option"><input type="radio" name="department"
+                        <label class="radio-opt"><input type="radio" name="pA_department"
                                 value="Cửa hàng — Nhân viên bán hàng" required> Cửa hàng — Nhân viên bán hàng</label>
-                        <label class="radio-option"><input type="radio" name="department"
+                        <label class="radio-opt"><input type="radio" name="pA_department"
                                 value="Cửa hàng — Cửa hàng Trưởng"> Cửa hàng — Cửa hàng Trưởng</label>
-                        <label class="radio-option"><input type="radio" name="department"
+                        <label class="radio-opt"><input type="radio" name="pA_department"
                                 value="Kho / Cung ứng / Sản phẩm"> Kho / Cung ứng / Sản phẩm</label>
-                        <label class="radio-option"><input type="radio" name="department"
+                        <label class="radio-opt"><input type="radio" name="pA_department"
                                 value="Kinh doanh Online (TMĐT)"> Kinh doanh Online (TMĐT)</label>
-                        <label class="radio-option"><input type="radio" name="department" value="CSKH & Sale Online">
+                        <label class="radio-opt"><input type="radio" name="pA_department" value="CSKH & Sale Online">
                             CSKH & Sale Online</label>
-                        <label class="radio-option"><input type="radio" name="department" value="Marketing">
+                        <label class="radio-opt"><input type="radio" name="pA_department" value="Marketing">
                             Marketing</label>
-                        <label class="radio-option"><input type="radio" name="department" value="Tài chính – Kế toán">
+                        <label class="radio-opt"><input type="radio" name="pA_department" value="Tài chính – Kế toán">
                             Tài chính – Kế toán</label>
-                        <label class="radio-option"><input type="radio" name="department" value="Hành chính – Nhân sự">
+                        <label class="radio-opt"><input type="radio" name="pA_department" value="Hành chính – Nhân sự">
                             Hành chính – Nhân sự</label>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="question-title">Vị trí công việc của bạn là: <span class="required">*</span></label>
+                    <div class="q-title">Vị trí công việc của bạn là: <span class="required">*</span></div>
                     <div class="radio-group">
-                        <label class="radio-option"><input type="radio" name="position"
+                        <label class="radio-opt"><input type="radio" name="pA_position"
                                 value="Nhân viên / Sales Associate" required> Nhân viên / Sales Associate</label>
-                        <label class="radio-option"><input type="radio" name="position"
+                        <label class="radio-opt"><input type="radio" name="pA_position"
                                 value="Chuyên viên / Specialist"> Chuyên viên / Specialist</label>
-                        <label class="radio-option"><input type="radio" name="position"
+                        <label class="radio-opt"><input type="radio" name="pA_position"
                                 value="Quản lý / Cửa hàng Trưởng"> Quản lý / Cửa hàng Trưởng</label>
-                        <label class="radio-option"><input type="radio" name="position"
+                        <label class="radio-opt"><input type="radio" name="pA_position"
                                 value="Trưởng bộ phận / Trưởng phòng"> Trưởng bộ phận / Trưởng phòng</label>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="question-title">Thâm niên tại V64: <span class="required">*</span></label>
+                    <div class="q-title">Thâm niên tại V64: <span class="required">*</span></div>
                     <div class="radio-group">
-                        <label class="radio-option"><input type="radio" name="tenure" value="Dưới 6 tháng" required>
+                        <label class="radio-opt"><input type="radio" name="pA_tenure" value="Dưới 6 tháng" required>
                             Dưới 6 tháng</label>
-                        <label class="radio-option"><input type="radio" name="tenure" value="6 tháng – 1 năm"> 6 tháng –
+                        <label class="radio-opt"><input type="radio" name="pA_tenure" value="6 tháng – 1 năm"> 6 tháng –
                             1 năm</label>
-                        <label class="radio-option"><input type="radio" name="tenure" value="1 – 2 năm"> 1 – 2
+                        <label class="radio-opt"><input type="radio" name="pA_tenure" value="1 – 2 năm"> 1 – 2
                             năm</label>
-                        <label class="radio-option"><input type="radio" name="tenure" value="Trên 2 năm"> Trên 2
+                        <label class="radio-opt"><input type="radio" name="pA_tenure" value="Trên 2 năm"> Trên 2
                             năm</label>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="question-title">Bạn đang làm việc tại khu vực nào? <span
-                            class="required">*</span></label>
+                    <div class="q-title">Bạn đang làm việc tại khu vực nào? <span class="required">*</span></div>
                     <div class="radio-group">
-                        <label class="radio-option"><input type="radio" name="region" value="1. Khu vực TP. Hồ Chí Minh"
+                        <label class="radio-opt"><input type="radio" name="pA_region" value="1. Khu vực TP. Hồ Chí Minh"
                                 required> 1. Khu vực TP. Hồ Chí Minh</label>
-                        <label class="radio-option"><input type="radio" name="region" value="2. Khu vực Miền Bắc"> 2.
+                        <label class="radio-opt"><input type="radio" name="pA_region" value="2. Khu vực Miền Bắc"> 2.
                             Khu vực Miền Bắc</label>
-                        <label class="radio-option"><input type="radio" name="region" value="3. Khu vực Miền Trung"> 3.
+                        <label class="radio-opt"><input type="radio" name="pA_region" value="3. Khu vực Miền Trung"> 3.
                             Khu vực Miền Trung</label>
-                        <label class="radio-option"><input type="radio" name="region" value="4. Khu vực Miền Tây"> 4.
+                        <label class="radio-opt"><input type="radio" name="pA_region" value="4. Khu vực Miền Tây"> 4.
                             Khu vực Miền Tây</label>
                     </div>
                 </div>
 
-                <div class="notice">
-                    ⚠️ <strong>Lưu ý quan trọng:</strong> Để xác nhận bạn đang đọc kỹ từng câu hỏi, hãy chọn <strong>số
-                        4</strong> cho câu hỏi ĐẦU TIÊN của Phần 2.2 bên dưới.
+                <div
+                    style="background:#FFFBEB;border:1px dashed #D97706;padding:10px 14px;border-radius:6px;font-size:.85rem;color:#B45309">
+                    ⚠️ <strong>Lưu ý:</strong> Để xác nhận bạn đọc kỹ câu hỏi, hãy chọn <strong>số 4</strong> cho câu
+                    hỏi ĐẦU TIÊN của mục 2.2 bên dưới.
                 </div>
             </div>
 
             <!-- PHẦN 1 -->
-            <div class="card-section">
-                <h2>🪞 PHẦN 1 — TỰ ĐÁNH GIÁ CỐNG HIẾN</h2>
+            <div class="section-block">
+                <div class="sec-title">🪞 PHẦN 1 — TỰ ĐÁNH GIÁ CỐNG HIẾN</div>
+                <div class="q-sub" style="margin-bottom:14px">Thang điểm 1–10: [1] Rất thấp/Không cố gắng ··· [10] Đã
+                    dốc toàn lực/Rất thường xuyên</div>
+
                 <div class="form-group">
-                    <label class="question-title">Mức độ nỗ lực & cống hiến tổng thể của tôi trong giai đoạn vừa qua (1:
-                        Không cố gắng - 10: Dốc toàn lực) <span class="required">*</span></label>
-                    <div class="scale-rating">
-                        <script>
-                            for (let i = 1; i <= 10; i++) {
-                                document.write(`<label class="scale-item"><input type="radio" name="effort" value="${i}" required> ${i}</label>`);
-                            }
-                        </script>
-                    </div>
+                    <div class="q-title">Mức độ nỗ lực & cống hiến tổng thể của tôi trong giai đoạn vừa qua <span
+                            class="required">*</span></div>
+                    <div class="scale-wrap" id="sc_effort"></div>
+                </div>
+                <div class="form-group">
+                    <div class="q-title">Tôi chủ động giải quyết vấn đề thay vì chờ người khác chỉ đạo <span
+                            class="required">*</span></div>
+                    <div class="scale-wrap" id="sc_proactive"></div>
+                </div>
+                <div class="form-group">
+                    <div class="q-title">Tôi sẵn sàng chia sẻ ý tưởng & đóng góp cải tiến cho đội nhóm <span
+                            class="required">*</span></div>
+                    <div class="scale-wrap" id="sc_share_idea"></div>
+                </div>
+                <div class="form-group">
+                    <div class="q-title"><span class="r-badge">[R]</span> Đôi khi tôi cảm thấy làm ít hơn mức có thể là
+                        chấp nhận được <span class="required">*</span></div>
+                    <div class="scale-wrap" id="sc_r_effort1"></div>
+                </div>
+                <div class="form-group">
+                    <div class="q-title"><span class="r-badge">[R]</span> Tôi thường hoàn thành công việc ở mức "đủ
+                        dùng" thay vì hết mình <span class="required">*</span></div>
+                    <div class="scale-wrap" id="sc_r_effort2"></div>
+                </div>
+
+                <div class="form-group" style="margin-top:20px">
+                    <div class="q-title">✅ Trong 3 tháng qua, kết quả / sáng kiến nổi bật nhất bạn đóng góp cho V64 là
+                        gì? <span class="required">*</span></div>
+                    <textarea name="p1_achievements" required
+                        placeholder="Ví dụ: tăng doanh số, đề xuất ý tưởng, hỗ trợ đồng nghiệp..."></textarea>
                 </div>
 
                 <div class="form-group">
-                    <label class="question-title">✅ Trong 3 tháng qua, kết quả / sáng kiến nổi bật nhất bạn đóng góp cho
-                        V64 là gì?</label>
-                    <textarea name="achievements"
-                        placeholder="Ví dụ: tăng doanh số %, đề xuất ý tưởng, hỗ trợ đồng nghiệp..."></textarea>
+                    <div class="q-title">🚧 Rào cản LỚN NHẤT đang ngăn bạn cống hiến 100% công suất là gì? <span
+                            class="required">*</span></div>
+                    <textarea name="p1_barriers" required
+                        placeholder="Ví dụ: thiếu công cụ, quy trình rườm rà, thiếu thông tin..."></textarea>
                 </div>
 
                 <div class="form-group">
-                    <label class="question-title">🚧 Rào cản LỚN NHẤT đang ngăn bạn cống hiến 100% công suất là
-                        gì?</label>
-                    <textarea name="barriers"
-                        placeholder="Ví dụ: thiếu thông tin, quy trình rườm rà, thiếu công cụ..."></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label class="question-title">Bạn đang đối mặt với những khó khăn nào? (Chọn tất cả phù hợp)</label>
+                    <div class="q-title">Bạn đang đối mặt với những khó khăn nào? (Chọn tất cả phù hợp) <span
+                            class="required">*</span></div>
                     <div class="checkbox-group">
-                        <label class="checkbox-option"><input type="checkbox" name="difficulties"
-                                value="Thu nhập không ổn định / lo lắng về lương"> Thu nhập không ổn định / lo lắng về
-                            tình hình lương thưởng</label>
-                        <label class="checkbox-option"><input type="checkbox" name="difficulties"
-                                value="Áp lực công việc quá cao"> Áp lực công việc quá cao, không cân bằng cuộc
-                            sống</label>
-                        <label class="checkbox-option"><input type="checkbox" name="difficulties"
-                                value="Không rõ mục tiêu công ty"> Không rõ mục tiêu / không biết công ty đang đi
-                            đâu</label>
-                        <label class="checkbox-option"><input type="checkbox" name="difficulties"
-                                value="Thiếu công cụ làm việc"> Thiếu công cụ, tài nguyên để làm việc hiệu quả</label>
-                        <label class="checkbox-option"><input type="checkbox" name="difficulties"
-                                value="Kiệt sức (burnout)"> Cảm thấy kiệt sức và mất động lực (burnout)</label>
-                        <label class="checkbox-option"><input type="checkbox" name="difficulties"
-                                value="Không có khó khăn đặc biệt"> Không có khó khăn đặc biệt nào</label>
+                        <label class="check-opt"><input type="checkbox" name="p1_difficulties"
+                                value="Thu nhập không ổn định / lo lắng về lương thưởng"> Thu nhập không ổn định / lo
+                            lắng về lương thưởng</label>
+                        <label class="check-opt"><input type="checkbox" name="p1_difficulties"
+                                value="Áp lực công việc quá cao"> Áp lực công việc quá cao</label>
+                        <label class="check-opt"><input type="checkbox" name="p1_difficulties"
+                                value="Không rõ mục tiêu công ty"> Không rõ mục tiêu công ty</label>
+                        <label class="check-opt"><input type="checkbox" name="p1_difficulties"
+                                value="Thiếu công cụ, tài nguyên"> Thiếu công cụ, tài nguyên</label>
+                        <label class="check-opt"><input type="checkbox" name="p1_difficulties"
+                                value="Thiếu hỗ trợ từ quản lý"> Thiếu hỗ trợ từ quản lý</label>
+                        <label class="check-opt"><input type="checkbox" name="p1_difficulties" value="Mâu thuẫn nội bộ">
+                            Mâu thuẫn nội bộ</label>
+                        <label class="check-opt"><input type="checkbox" name="p1_difficulties"
+                                value="Không thấy cơ hội phát triển"> Không thấy cơ hội phát triển</label>
+                        <label class="check-opt"><input type="checkbox" name="p1_difficulties"
+                                value="Cảm thấy kiệt sức (burnout)"> Cảm thấy kiệt sức (burnout)</label>
+                        <label class="check-opt"><input type="checkbox" name="p1_difficulties"
+                                value="Không có khó khăn đặc biệt"> Không có khó khăn đặc biệt</label>
                     </div>
                 </div>
             </div>
 
             <!-- PHẦN 2 -->
-            <div class="card-section">
-                <h2>🌱 PHẦN 2 — MÔI TRƯỜNG LÀM VIỆC & SỨC SỐNG VĂN HÓA</h2>
+            <div class="section-block">
+                <div class="sec-title">🌱 PHẦN 2 — MÔI TRƯỜNG LÀM VIỆC & SỨC SỐNG VĂN HÓA</div>
+
                 <div class="form-group">
-                    <label class="question-title">2.1 Đánh giá điều kiện làm việc (Thang điểm 1-5)</label>
-                    <table class="matrix-table">
+                    <div class="q-title">2.1 Đánh giá điều kiện làm việc (Thang điểm 1–5: [1] Kém ··· [5] Rất tốt) <span
+                            class="required">*</span></div>
+                    <table class="matrix">
                         <thead>
                             <tr>
                                 <th>Tiêu chí</th>
@@ -334,101 +418,188 @@
                         <tbody>
                             <tr>
                                 <td>Cơ sở vật chất, không gian làm việc</td>
-                                <td><input type="radio" name="env_facility" value="1" required></td>
-                                <td><input type="radio" name="env_facility" value="2"></td>
-                                <td><input type="radio" name="env_facility" value="3"></td>
-                                <td><input type="radio" name="env_facility" value="4"></td>
-                                <td><input type="radio" name="env_facility" value="5"></td>
+                                <td><input type="radio" name="p2_grid_facility" value="1" required></td>
+                                <td><input type="radio" name="p2_grid_facility" value="2"></td>
+                                <td><input type="radio" name="p2_grid_facility" value="3"></td>
+                                <td><input type="radio" name="p2_grid_facility" value="4"></td>
+                                <td><input type="radio" name="p2_grid_facility" value="5"></td>
                             </tr>
                             <tr>
-                                <td>Công cụ & hệ thống hỗ trợ công việc</td>
-                                <td><input type="radio" name="env_tools" value="1" required></td>
-                                <td><input type="radio" name="env_tools" value="2"></td>
-                                <td><input type="radio" name="env_tools" value="3"></td>
-                                <td><input type="radio" name="env_tools" value="4"></td>
-                                <td><input type="radio" name="env_tools" value="5"></td>
+                                <td>Công cụ & hệ thống hỗ trợ</td>
+                                <td><input type="radio" name="p2_grid_tools" value="1" required></td>
+                                <td><input type="radio" name="p2_grid_tools" value="2"></td>
+                                <td><input type="radio" name="p2_grid_tools" value="3"></td>
+                                <td><input type="radio" name="p2_grid_tools" value="4"></td>
+                                <td><input type="radio" name="p2_grid_tools" value="5"></td>
                             </tr>
                             <tr>
-                                <td>Quy trình nội bộ rõ ràng, không rườm rà</td>
-                                <td><input type="radio" name="env_process" value="1" required></td>
-                                <td><input type="radio" name="env_process" value="2"></td>
-                                <td><input type="radio" name="env_process" value="3"></td>
-                                <td><input type="radio" name="env_process" value="4"></td>
-                                <td><input type="radio" name="env_process" value="5"></td>
+                                <td>Thông tin SP & tài liệu bán hàng</td>
+                                <td><input type="radio" name="p2_grid_product_info" value="1" required></td>
+                                <td><input type="radio" name="p2_grid_product_info" value="2"></td>
+                                <td><input type="radio" name="p2_grid_product_info" value="3"></td>
+                                <td><input type="radio" name="p2_grid_product_info" value="4"></td>
+                                <td><input type="radio" name="p2_grid_product_info" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>Quy trình nội bộ rõ ràng</td>
+                                <td><input type="radio" name="p2_grid_process" value="1" required></td>
+                                <td><input type="radio" name="p2_grid_process" value="2"></td>
+                                <td><input type="radio" name="p2_grid_process" value="3"></td>
+                                <td><input type="radio" name="p2_grid_process" value="4"></td>
+                                <td><input type="radio" name="p2_grid_process" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>Khả năng tiếp cận dữ liệu</td>
+                                <td><input type="radio" name="p2_grid_data_access" value="1" required></td>
+                                <td><input type="radio" name="p2_grid_data_access" value="2"></td>
+                                <td><input type="radio" name="p2_grid_data_access" value="3"></td>
+                                <td><input type="radio" name="p2_grid_data_access" value="4"></td>
+                                <td><input type="radio" name="p2_grid_data_access" value="5"></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
+                <div class="q-title" style="margin-top:20px;color:var(--teal)">2.2 Sức sống Văn hóa Doanh nghiệp (Thang
+                    1–10)</div>
                 <div class="form-group">
-                    <label class="question-title">2.2 Tôi hiểu rõ định hướng và mục tiêu của V64 trong giai đoạn này
-                        (Thang 1-10) <span class="required">* (Chú ý Attention Check chọn số 4)</span></label>
-                    <div class="scale-rating">
-                        <script>
-                            for (let i = 1; i <= 10; i++) {
-                                document.write(`<label class="scale-item"><input type="radio" name="culture_goal" value="${i}" required> ${i}</label>`);
-                            }
-                        </script>
+                    <div class="q-title">Tôi hiểu rõ định hướng và mục tiêu của V64 trong giai đoạn này <span
+                            class="required">* (Chú ý: Chọn 4)</span></div>
+                    <div class="scale-wrap" id="sc_culture_attn"></div>
+                </div>
+                <div class="form-group">
+                    <div class="q-title">Ban Lãnh Đạo chia sẻ thông tin minh bạch, trung thực với nhân viên <span
+                            class="required">*</span></div>
+                    <div class="scale-wrap" id="sc_culture_transparent"></div>
+                </div>
+                <div class="form-group">
+                    <div class="q-title">Đồng nghiệp hỗ trợ nhau trong lúc khó khăn <span class="required">*</span>
                     </div>
+                    <div class="scale-wrap" id="sc_culture_support"></div>
+                </div>
+                <div class="form-group">
+                    <div class="q-title">V64 có văn hóa "trách nhiệm" hơn là "đổ lỗi" <span class="required">*</span>
+                    </div>
+                    <div class="scale-wrap" id="sc_culture_accountable"></div>
+                </div>
+                <div class="form-group">
+                    <div class="q-title">Tôi cảm thấy ý kiến của mình được lắng nghe và tôn trọng <span
+                            class="required">*</span></div>
+                    <div class="scale-wrap" id="sc_culture_listened"></div>
+                </div>
+                <div class="form-group">
+                    <div class="q-title"><span class="r-badge">[R]</span> Thông tin tại V64 thường bị giấu kín, không
+                        được chia sẻ minh bạch <span class="required">*</span></div>
+                    <div class="scale-wrap" id="sc_r_culture_hidden"></div>
+                </div>
+
+                <div class="q-title" style="margin-top:20px;color:var(--pur)">2.3 Mức độ Gắn bó & An toàn tâm lý (Thang
+                    1–10)</div>
+                <div class="form-group">
+                    <div class="q-title">Tôi hài lòng với công việc hiện tại tại V64 <span class="required">*</span>
+                    </div>
+                    <div class="scale-wrap" id="sc_sat_overall"></div>
+                </div>
+                <div class="form-group">
+                    <div class="q-title">Tôi có kế hoạch gắn bó với V64 trong 12 tháng tới <span
+                            class="required">*</span></div>
+                    <div class="scale-wrap" id="sc_stay_12m"></div>
+                </div>
+                <div class="form-group">
+                    <div class="q-title">Tại V64, tôi có thể nêu vấn đề khó nói mà không sợ bị trả thù <span
+                            class="required">*</span></div>
+                    <div class="scale-wrap" id="sc_safe_speakup"></div>
+                </div>
+                <div class="form-group">
+                    <div class="q-title">Tôi cảm thấy cạn kiệt năng lượng sau một ngày làm việc tại V64 <span
+                            class="required">*</span></div>
+                    <div class="scale-wrap" id="sc_burnout"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="q-title">💬 Điều kiện tối thiểu nào khiến bạn sẵn sàng gắn bó lâu dài hơn với V64? <span
+                            class="required">*</span></div>
+                    <textarea name="p2_condition_to_stay" required
+                        placeholder="Chia sẻ thật thẳng thắn những nguyện vọng của bạn..."></textarea>
                 </div>
             </div>
 
-            <button type="submit" class="btn-submit">Gửi Phần 1 & Tiếp Tục Sang Phần 2/2 ➔</button>
+            <button type="submit" class="btn-submit" id="btnSubmitP1">Hoàn Thành Phần 1 & Tiếp Tục Sang Phần 2/2
+                ➔</button>
         </form>
     </div>
 
     <script>
-        // 1. KIỂM TRA NGAY KHI MỞ TRANG:
-        (function () {
-            const isCompletedAll = localStorage.getItem("V64_COMPLETED_ALL");
-            const isPart1Done = localStorage.getItem("V64_PART1_COMPLETED");
-            const savedSurveyId = localStorage.getItem("V64_SURVEY_ID");
+        // ĐIỀN LINK WEB APP CỦA BẠN VÀO ĐÂY:
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby4HfwSxKzyVRmt2rDXF-R7xxRDSKjqTRjUAscqNRspW8NS2BsaHcOlz4_ekxYKmFgw/exec";
 
-            // Nếu đã làm xong toàn bộ cả 2 phần:
-            if (isCompletedAll === "true") {
-                alert("Bạn đã hoàn thành trọn vẹn cả 2 phần khảo sát trước đó. Cảm ơn bạn!");
-                return;
+        // Hàm tự động tạo hàng nút Scale 1-10
+        function buildScale(containerId, name) {
+            const box = document.getElementById(containerId);
+            if (!box) return;
+            let html = '';
+            for (let i = 1; i <= 10; i++) {
+                html += `<label class="scale-item"><input type="radio" name="${name}" value="${i}" required>${i}</label>`;
             }
+            box.innerHTML = html;
+        }
 
-            // Nếu đã xong Phần 1 nhưng chưa xong Phần 2: Tự động chuyển ngay sang Phần 2
-            if (isPart1Done === "true" && savedSurveyId) {
-                alert("Hệ thống nhận thấy bạn đã hoàn thành Phần 1. Đang chuyển tiếp bạn sang Phần 2/2...");
-                window.location.href = `part2.html?sid=${encodeURIComponent(savedSurveyId)}`;
+        // Khởi tạo các câu thang 1-10
+        buildScale('sc_effort', 'p1_effort_overall');
+        buildScale('sc_proactive', 'p1_proactive');
+        buildScale('sc_share_idea', 'p1_share_idea');
+        buildScale('sc_r_effort1', 'p1_r_slack_ok');
+        buildScale('sc_r_effort2', 'p1_r_bare_minimum');
+        buildScale('sc_culture_attn', 'p2_culture_goal_attn');
+        buildScale('sc_culture_transparent', 'p2_culture_transparent');
+        buildScale('sc_culture_support', 'p2_culture_support');
+        buildScale('sc_culture_accountable', 'p2_culture_accountable');
+        buildScale('sc_culture_listened', 'p2_culture_listened');
+        buildScale('sc_r_culture_hidden', 'p2_r_culture_hidden');
+        buildScale('sc_sat_overall', 'p2_sat_overall');
+        buildScale('sc_stay_12m', 'p2_stay_12m');
+        buildScale('sc_safe_speakup', 'p2_safe_speakup');
+        buildScale('sc_burnout', 'p2_burnout');
+
+        // Kiểm tra nếu đã hoàn thành Phần 1 thì tự chuyển sang Phần 2
+        (function checkDone() {
+            const isP1Done = localStorage.getItem("V64_P1_DONE");
+            const sid = localStorage.getItem("V64_SURVEY_ID");
+            if (isP1Done === "true" && sid) {
+                if (confirm("Bạn đã nộp thành công Phần 1 trước đó. Bạn có muốn chuyển ngay sang Phần 2/2 không?")) {
+                    window.location.href = `part2.html?sid=${encodeURIComponent(sid)}`;
+                }
             }
         })();
 
-        // 2. XỬ LÝ KHI BẤM NỘP PHẦN 1:
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby4HfwSxKzyVRmt2rDXF-R7xxRDSKjqTRjUAscqNRspW8NS2BsaHcOlz4_ekxYKmFgw/exec";
-
+        // Xử lý nộp form
         const form = document.getElementById('formPart1');
-        const submitBtn = form.querySelector('.btn-submit');
+        const submitBtn = document.getElementById('btnSubmitP1');
 
         form.addEventListener('submit', async function (e) {
             e.preventDefault();
 
             const formData = new FormData(form);
-            const payloadData = {};
+            const data = {};
 
             formData.forEach((value, key) => {
-                if (payloadData[key]) {
-                    if (!Array.isArray(payloadData[key])) {
-                        payloadData[key] = [payloadData[key]];
-                    }
-                    payloadData[key].push(value);
+                if (data[key]) {
+                    if (!Array.isArray(data[key])) data[key] = [data[key]];
+                    data[key].push(value);
                 } else {
-                    payloadData[key] = value;
+                    data[key] = value;
                 }
             });
 
             submitBtn.disabled = true;
-            submitBtn.textContent = "⏳ Đang lưu dữ liệu Phần 1...";
+            submitBtn.textContent = "⏳ Đang ghi nhận dữ liệu Phần 1...";
 
             try {
                 const response = await fetch(SCRIPT_URL, {
                     method: "POST",
                     body: JSON.stringify({
                         step: 1,
-                        data: payloadData
+                        data: data
                     })
                 });
 
@@ -436,23 +607,21 @@
 
                 if (res.status === "success") {
                     const surveyId = res.surveyId;
-
-                    // LƯU TRẠNG THÁI VÀO BỘ NHỚ MÁY
                     localStorage.setItem("V64_SURVEY_ID", surveyId);
-                    localStorage.setItem("V64_PART1_COMPLETED", "true");
+                    localStorage.setItem("V64_P1_DONE", "true");
 
-                    alert("✅ Dữ liệu Phần 1 đã được lưu an toàn!\nBấm OK để tiếp tục sang Phần 2/2.");
+                    alert("✅ Đã hoàn tất và lưu dữ liệu Phần 1!\nHệ thống sẽ chuyển bạn sang Phần 2/2.");
                     window.location.href = `part2.html?sid=${encodeURIComponent(surveyId)}`;
                 } else {
-                    alert("Lỗi khi lưu dữ liệu: " + res.message);
+                    alert("Lỗi: " + res.message);
                     submitBtn.disabled = false;
-                    submitBtn.textContent = "Gửi Phần 1 & Tiếp Tục Sang Phần 2/2 ➔";
+                    submitBtn.textContent = "Hoàn Thành Phần 1 & Tiếp Tục Sang Phần 2/2 ➔";
                 }
             } catch (err) {
                 console.error(err);
-                alert("Lỗi kết nối mạng. Vui lòng kiểm tra lại mạng và bấm gửi lại!");
+                alert("Lỗi kết nối mạng, vui lòng thử lại!");
                 submitBtn.disabled = false;
-                submitBtn.textContent = "Gửi Phần 1 & Tiếp Tục Sang Phần 2/2 ➔";
+                submitBtn.textContent = "Hoàn Thành Phần 1 & Tiếp Tục Sang Phần 2/2 ➔";
             }
         });
     </script>

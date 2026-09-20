@@ -3,174 +3,518 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>V64 EPS 2026 — Khảo sát Sức khỏe Doanh nghiệp (Phần 2/2)</title>
     <style>
         :root {
-            --primary-color: #059669;
-            --bg-color: #ecfdf5;
-            --card-bg: #ffffff;
-            --border-color: #e5e7eb;
-            --text-color: #1f2937;
+            --gold: #B8996A;
+            --dark: #1A1510;
+            --cream: #FAF8F5;
+            --grn: #059669;
+            --red: #DC2626;
+            --blu: #1D4ED8;
+            --org: #D97706;
+            --teal: #0F766E;
+            --slate: #475569;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            background: #f0ede8;
+            color: #1A1510;
             line-height: 1.6;
-            margin: 0;
-            padding: 20px;
+            padding: 20px 12px
         }
 
-        .container {
-            max-width: 760px;
-            margin: 0 auto;
+        .wrap {
+            max-width: 860px;
+            margin: 0 auto
         }
 
-        .card {
-            background: var(--card-bg);
+        .hdr {
+            background: var(--dark);
+            padding: 32px 24px;
             border-radius: 12px;
-            padding: 24px;
             margin-bottom: 20px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-            border-top: 6px solid var(--primary-color);
+            text-align: center;
+            border-top: 6px solid var(--grn)
         }
 
-        .card-section {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-        }
-
-        h1 {
+        .hdr h1 {
+            color: var(--gold);
             font-size: 1.6rem;
-            margin-bottom: 12px;
-            color: #065f46;
+            font-family: 'Times New Roman', serif;
+            margin-bottom: 8px
         }
 
-        h2 {
-            font-size: 1.3rem;
-            margin-bottom: 12px;
-            color: #047857;
-            border-bottom: 2px solid #a7f3d0;
+        .hdr p {
+            color: #D1D5DB;
+            font-size: .92rem
+        }
+
+        .section-block {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .06)
+        }
+
+        .sec-title {
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--dark);
+            border-bottom: 2px solid #F3F4F6;
             padding-bottom: 8px;
+            margin-bottom: 16px
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 20px
         }
 
-        label.question-title {
-            display: block;
+        .q-title {
+            font-size: .92rem;
             font-weight: 600;
-            margin-bottom: 10px;
+            color: #1f2937;
+            margin-bottom: 8px
+        }
+
+        .q-sub {
+            font-size: .8rem;
+            color: var(--slate);
+            margin-bottom: 8px
+        }
+
+        .required {
+            color: var(--red)
+        }
+
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px
+        }
+
+        .radio-opt,
+        .check-opt {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: .88rem;
+            cursor: pointer;
+            padding: 6px 10px;
+            border-radius: 6px;
+            background: #f9fafb
+        }
+
+        .radio-opt:hover,
+        .check-opt:hover {
+            background: #f3f4f6
+        }
+
+        .scale-wrap {
+            display: flex;
+            justify-content: space-between;
+            gap: 6px;
+            overflow-x: auto;
+            padding: 8px 0
+        }
+
+        .scale-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: .82rem;
+            gap: 4px;
+            min-width: 32px;
+            cursor: pointer
+        }
+
+        table.matrix {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 8px;
+            font-size: .85rem
+        }
+
+        table.matrix th,
+        table.matrix td {
+            border: 1px solid #E5E7EB;
+            padding: 8px 6px;
+            text-align: center
+        }
+
+        table.matrix th:first-child,
+        table.matrix td:first-child {
+            text-align: left;
+            width: 45%
         }
 
         textarea,
         input[type="text"] {
             width: 100%;
             padding: 10px;
-            border: 1px solid #d1d5db;
+            border: 1px solid #D1D5DB;
             border-radius: 6px;
             box-sizing: border-box;
             font-family: inherit;
+            font-size: .9rem
         }
 
         textarea {
-            height: 90px;
-            resize: vertical;
+            height: 85px;
+            resize: vertical
         }
 
-        button.btn-submit {
-            background-color: var(--primary-color);
+        .routing-box {
+            background: #FEF3C7;
+            border: 2px solid #D97706;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px
+        }
+
+        .branch-block {
+            display: none
+        }
+
+        .btn-submit {
+            background: var(--grn);
             color: white;
             border: none;
-            padding: 14px 28px;
-            font-size: 1rem;
+            padding: 15px 30px;
+            font-size: 1.05rem;
             font-weight: bold;
             border-radius: 8px;
             cursor: pointer;
             width: 100%;
-            transition: background 0.2s;
+            transition: background .2s
         }
 
-        button.btn-submit:hover {
-            background-color: #047857;
+        .btn-submit:hover {
+            background: #047857
         }
 
-        button.btn-submit:disabled {
-            background-color: #9ca3af;
-            cursor: not-allowed;
+        .btn-submit:disabled {
+            background: #9ca3af;
+            cursor: not-allowed
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="card">
-            <h1>V64 EPS 2026(FN) — Khảo sát Sức khỏe Doanh nghiệp [Phần 2/2]</h1>
-            <p>🔒 <strong>PHẦN 2/2 — ĐÁNH GIÁ LÃNH ĐẠO & ĐỀ XUẤT PHÁT TRIỂN</strong></p>
-            <p>⏱ Thời gian hoàn thành Phần 2: khoảng 5–7 phút.</p>
+    <div class="wrap">
+        <div class="hdr">
+            <h1>V64 EPS 2026 — Khảo sát Sức khỏe Doanh nghiệp</h1>
+            <p>PHẦN 2/2 — ĐÁNH GIÁ LÃNH ĐẠO, ĐỀ XUẤT & CHUYÊN BIỆT THEO KHỐI</p>
         </div>
 
         <form id="formPart2">
             <!-- PHẦN 3 -->
-            <div class="card-section">
-                <h2>📢 PHẦN 3 — ĐÁNH GIÁ LÃNH ĐẠO & BAN LÃNH ĐẠO</h2>
+            <div class="section-block">
+                <div class="sec-title">📢 PHẦN 3 — ĐÁNH GIÁ LÃNH ĐẠO & BAN LÃNH ĐẠO</div>
+
                 <div class="form-group">
-                    <label class="question-title">🚨 Hành động CỤ THỂ nào mà Ban Lãnh Đạo cần làm NGAY trong 30 ngày tới
-                        để khôi phục niềm tin?</label>
-                    <textarea name="action_30_days"
-                        placeholder="Ví dụ: họp toàn công ty, minh bạch tài chính, cam kết lịch lương..."></textarea>
+                    <div class="q-title">3.1 Năng lực Quản lý trực tiếp (Thang điểm 1–5: [1] Rất kém ··· [5] Xuất sắc)
+                        <span class="required">*</span>
+                    </div>
+                    <table class="matrix">
+                        <thead>
+                            <tr>
+                                <th>Tiêu chí</th>
+                                <th>1</th>
+                                <th>2</th>
+                                <th>3</th>
+                                <th>4</th>
+                                <th>5</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Giao việc rõ ràng, đúng mục tiêu</td>
+                                <td><input type="radio" name="p3_mng_clarity" value="1" required></td>
+                                <td><input type="radio" name="p3_mng_clarity" value="2"></td>
+                                <td><input type="radio" name="p3_mng_clarity" value="3"></td>
+                                <td><input type="radio" name="p3_mng_clarity" value="4"></td>
+                                <td><input type="radio" name="p3_mng_clarity" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>Hỗ trợ & đồng hành khi gặp khó khăn</td>
+                                <td><input type="radio" name="p3_mng_support" value="1" required></td>
+                                <td><input type="radio" name="p3_mng_support" value="2"></td>
+                                <td><input type="radio" name="p3_mng_support" value="3"></td>
+                                <td><input type="radio" name="p3_mng_support" value="4"></td>
+                                <td><input type="radio" name="p3_mng_support" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>Công bằng trong đánh giá & phân công</td>
+                                <td><input type="radio" name="p3_mng_fair" value="1" required></td>
+                                <td><input type="radio" name="p3_mng_fair" value="2"></td>
+                                <td><input type="radio" name="p3_mng_fair" value="3"></td>
+                                <td><input type="radio" name="p3_mng_fair" value="4"></td>
+                                <td><input type="radio" name="p3_mng_fair" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>Ra quyết định kịp thời, dứt khoát</td>
+                                <td><input type="radio" name="p3_mng_decision" value="1" required></td>
+                                <td><input type="radio" name="p3_mng_decision" value="2"></td>
+                                <td><input type="radio" name="p3_mng_decision" value="3"></td>
+                                <td><input type="radio" name="p3_mng_decision" value="4"></td>
+                                <td><input type="radio" name="p3_mng_decision" value="5"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="form-group">
+                    <div class="q-title">✅ Điều bạn muốn quản lý trực tiếp tiếp tục phát huy là gì? <span
+                            class="required">*</span></div>
+                    <textarea name="p3_mng_keep" required placeholder="Nhập ý kiến của bạn..."></textarea>
+                </div>
+                <div class="form-group">
+                    <div class="q-title">📌 Điều bạn mong muốn quản lý trực tiếp thay đổi hoặc cải thiện? <span
+                            class="required">*</span></div>
+                    <textarea name="p3_mng_change" required placeholder="Nhập ý kiến của bạn..."></textarea>
+                </div>
+
+                <div class="q-title" style="margin-top:20px;color:var(--teal)">3.2 Đánh giá Ban Lãnh Đạo (Thang 1–10)
+                </div>
+                <div class="form-group">
+                    <div class="q-title">Tôi tin tưởng vào năng lực lãnh đạo của Ban Lãnh Đạo <span
+                            class="required">*</span></div>
+                    <div class="scale-wrap" id="sc_bld_trust"></div>
+                </div>
+                <div class="form-group">
+                    <div class="q-title">Ban Lãnh Đạo quan tâm thực sự đến người lao động <span
+                            class="required">*</span></div>
+                    <div class="scale-wrap" id="sc_bld_care"></div>
+                </div>
+                <div class="form-group">
+                    <div class="q-title">🚨 Hành động CỤ THỂ nào mà Ban Lãnh Đạo cần làm NGAY trong 30 ngày tới để khôi
+                        phục niềm tin? <span class="required">*</span></div>
+                    <textarea name="p3_action_30_days" required
+                        placeholder="Ví dụ: họp toàn công ty, minh bạch tài chính, lịch chi trả lương rõ ràng..."></textarea>
                 </div>
             </div>
 
-            <!-- PHẦN 5: STOP - CONTINUE - START -->
-            <div class="card-section">
-                <h2>💡 PHẦN 5 — KHUNG ĐỀ XUẤT STOP — CONTINUE — START</h2>
+            <!-- PHẦN 4 -->
+            <div class="section-block">
+                <div class="sec-title">🔗 PHẦN 4 — SỰ PHỐI HỢP LIÊN PHÒNG BAN</div>
                 <div class="form-group">
-                    <label class="question-title">🔴 DỪNG LẠI — Những việc Ban Lãnh Đạo cần DỪNG ngay vì gây hại hơn
-                        lợi:</label>
-                    <textarea name="action_stop" placeholder="Những việc cần dừng ngay..."></textarea>
+                    <div class="q-title">🚧 Điểm nghẽn vận hành LỚN NHẤT đang làm chậm dòng tiền hoặc giảm trải nghiệm
+                        khách hàng là gì? <span class="required">*</span></div>
+                    <textarea name="p4_bottleneck" required
+                        placeholder="Vấn đề gì, xảy ra ở đâu, do bộ phận nào, hậu quả ra sao..."></textarea>
                 </div>
                 <div class="form-group">
-                    <label class="question-title">🟡 TIẾP TỤC — Những việc đang làm tốt, cần phát huy:</label>
-                    <textarea name="action_continue" placeholder="Những việc cần tiếp tục..."></textarea>
-                </div>
-                <div class="form-group">
-                    <label class="question-title">🟢 BẮT ĐẦU — Những việc cần khởi động ngay để vực dậy tình
-                        hình:</label>
-                    <textarea name="action_start" placeholder="Những việc cần bắt đầu ngay..."></textarea>
-                </div>
-                <div class="form-group">
-                    <label class="question-title">🌟 Nếu bạn là Giám đốc V64 trong 1 ngày, điều đầu tiên bạn sẽ làm là
-                        gì?</label>
-                    <textarea name="if_ceo" placeholder="Chia sẻ ý tưởng của bạn..."></textarea>
+                    <div class="q-title">💡 Đề xuất của bạn để cải thiện sự phối hợp liên phòng ban: <span
+                            class="required">*</span></div>
+                    <textarea name="p4_collab_solution" required placeholder="Nhập đề xuất cụ thể..."></textarea>
                 </div>
             </div>
 
-            <button type="submit" class="btn-submit">Hoàn Thành & Gửi Toàn Bộ Khảo Sát ✔️</button>
+            <!-- PHẦN 5 -->
+            <div class="section-block">
+                <div class="sec-title">💡 PHẦN 5 — ĐỀ XUẤT THAY ĐỔI (STOP — CONTINUE — START)</div>
+                <div class="form-group">
+                    <div class="q-title">🔴 DỪNG LẠI — Những việc Ban Lãnh Đạo cần DỪNG ngay: <span
+                            class="required">*</span></div>
+                    <textarea name="p5_stop" required
+                        placeholder="Những việc cần dừng ngay vì hại nhiều hơn lợi..."></textarea>
+                </div>
+                <div class="form-group">
+                    <div class="q-title">🟡 TIẾP TỤC — Những việc đang làm tốt, cần phát huy: <span
+                            class="required">*</span></div>
+                    <textarea name="p5_continue" required placeholder="Những điểm sáng cần duy trì..."></textarea>
+                </div>
+                <div class="form-group">
+                    <div class="q-title">🟢 BẮT ĐẦU — Những việc cần khởi động ngay để vực dậy tình hình: <span
+                            class="required">*</span></div>
+                    <textarea name="p5_start" required placeholder="Ý tưởng hoặc quy trình cần bắt đầu..."></textarea>
+                </div>
+                <div class="form-group">
+                    <div class="q-title">🌟 Nếu bạn là Giám đốc V64 trong 1 ngày, điều đầu tiên bạn sẽ làm là gì? <span
+                            class="required">*</span></div>
+                    <textarea name="p5_if_ceo" required placeholder="Chia sẻ quyết định đầu tiên của bạn..."></textarea>
+                </div>
+            </div>
+
+            <!-- BƯỚC ROUTING -->
+            <div class="routing-box">
+                <div class="q-title" style="font-size:1.1rem;color:#92400E">🔀 BƯỚC CUỐI — CHỌN KHỐI LÀM VIỆC ĐỂ MỞ CÂU
+                    HỎI CHUYÊN BIỆT <span class="required">*</span></div>
+                <div class="radio-group" style="margin-top:12px">
+                    <label class="radio-opt" style="background:white">
+                        <input type="radio" name="routing_role" value="cuahang" required
+                            onchange="handleRouting(this.value)">
+                        <strong>🏪 Khối 1: Cửa hàng</strong> (Nhân viên bán hàng, Cửa hàng Trưởng)
+                    </label>
+                    <label class="radio-opt" style="background:white">
+                        <input type="radio" name="routing_role" value="vanphong" onchange="handleRouting(this.value)">
+                        <strong>🏢 Khối 2: Văn phòng</strong> (Marketing, Kế toán, HCNS, Sản phẩm, Quản lý...)
+                    </label>
+                    <label class="radio-opt" style="background:white">
+                        <input type="radio" name="routing_role" value="kho_online" onchange="handleRouting(this.value)">
+                        <strong>📦 Khối 3: Kho / Sale Online</strong> (Kho, Cung ứng, CSKH, Sale Online, TMĐT)
+                    </label>
+                </div>
+            </div>
+
+            <!-- NHÁNH VĂN PHÒNG (SUBMIT NGAY) -->
+            <div id="branch_vanphong" class="branch-block">
+                <div class="section-block" style="background:#EFF6FF;border-left:5px solid #2563EB">
+                    🎉 <strong>Khối Văn phòng đã hoàn thành toàn bộ nội dung khảo sát!</strong><br>
+                    Bạn không cần thực hiện thêm các phần thực địa bên dưới. Hãy bấm nút <strong>Gửi Bài</strong> bên
+                    dưới để hoàn tất nhé.
+                </div>
+            </div>
+
+            <!-- NHÁNH CỬA HÀNG (6B & 5B SJT) -->
+            <div id="branch_cuahang" class="branch-block">
+                <div class="section-block">
+                    <div class="sec-title" style="color:var(--grn)">🏪 6B.1 — CÂU HỎI TÌNH HUỐNG THỰC TẾ (SJT)</div>
+
+                    <div class="form-group">
+                        <div class="q-title">🎯 TÌNH HUỐNG 1 — Thiếu nhân sự đột xuất <span class="required">*</span>
+                        </div>
+                        <div class="q-sub">Ca của bạn sắp hết, người thay ca chưa đến, đang có 3 khách trong cửa hàng.
+                            Bạn làm gì?</div>
+                        <div class="radio-group">
+                            <label class="radio-opt"><input type="radio" name="sjt_1" value="A"> A. Đợi thêm 15 phút rồi
+                                về đúng giờ</label>
+                            <label class="radio-opt"><input type="radio" name="sjt_1" value="B"> B. Gọi quản lý báo tình
+                                huống, rồi về</label>
+                            <label class="radio-opt"><input type="radio" name="sjt_1" value="C"> C. Ở lại đến khi có
+                                người thay ca</label>
+                            <label class="radio-opt"><input type="radio" name="sjt_1" value="D"> D. Khóa cửa và ghi chú
+                                cho quản lý</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="q-title">🎯 TÌNH HUỐNG 2 — Khách phàn nàn trước đám đông <span
+                                class="required">*</span></div>
+                        <div class="q-sub">Khách phàn nàn lớn tiếng, dọa bóc phốt lên mạng xã hội. Bạn xử lý thế nào?
+                        </div>
+                        <div class="radio-group">
+                            <label class="radio-opt"><input type="radio" name="sjt_2" value="A"> A. Xin lỗi ngay, đề
+                                nghị hoàn tiền</label>
+                            <label class="radio-opt"><input type="radio" name="sjt_2" value="B"> B. Bình tĩnh lắng nghe,
+                                thừa nhận vấn đề, mời vào khu vực riêng trao đổi</label>
+                            <label class="radio-opt"><input type="radio" name="sjt_2" value="C"> C. Giải thích ngay
+                                khách đã hiểu sai</label>
+                            <label class="radio-opt"><input type="radio" name="sjt_2" value="D"> D. Gọi ngay cho quản
+                                lý</label>
+                        </div>
+                    </div>
+
+                    <div class="sec-title" style="color:var(--grn);margin-top:20px">6B.2 — ĐIỀU KIỆN VẬN HÀNH TẠI CỬA
+                        HÀNG</div>
+                    <div class="form-group">
+                        <div class="q-title">🛒 Phản hồi / Khiếu nại phổ biến nhất của khách hàng thời gian qua là gì?
+                        </div>
+                        <textarea name="p6b_customer_complaint"
+                            placeholder="Về mẫu mã, giá cả, size số, chất lượng hay dịch vụ..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <div class="q-title">💡 Nếu thay đổi 1 điều ngay hôm nay tại cửa hàng để tăng doanh số, bạn chọn
+                            gì?</div>
+                        <textarea name="p6b_idea_sales" placeholder="Ý kiến cụ thể của bạn..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NHÁNH KHO / ONLINE (6C) -->
+            <div id="branch_kho" class="branch-block">
+                <div class="section-block">
+                    <div class="sec-title" style="color:var(--org)">📦 6C — KHẢO SÁT KHỐI KHO / SALE ONLINE</div>
+
+                    <div class="form-group">
+                        <div class="q-title">Khó khăn lớn nhất trong việc phối hợp xử lý đơn hàng và kiểm soát tồn kho
+                            là gì?</div>
+                        <textarea name="p6c_bottleneck_kho"
+                            placeholder="Mô tả sự cố thực tế bạn thường gặp..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="q-title">📦 Công cụ hoặc tài nguyên nào bạn cần trang bị thêm để làm việc hiệu quả
+                            hơn?</div>
+                        <textarea name="p6c_tools_needed"
+                            placeholder="Ví dụ: máy in nhiệt, phần mềm quản lý kho, CRM, xe đẩy..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div id="submitWrap" style="display:none;margin-top:20px">
+                <button type="submit" class="btn-submit" id="btnSubmitP2">Hoàn Thành & Gửi Toàn Bộ Bài Khảo Sát
+                    ✔️</button>
+            </div>
         </form>
     </div>
+
     <script>
         const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby4HfwSxKzyVRmt2rDXF-R7xxRDSKjqTRjUAscqNRspW8NS2BsaHcOlz4_ekxYKmFgw/exec";
-        // Lấy mã Survey ID từ URL hoặc lấy trực tiếp từ localStorage
+
+        // Lấy mã Survey ID truyền từ Phần 1 sang
         const urlParams = new URLSearchParams(window.location.search);
-        const surveyId = urlParams.get("sid") || localStorage.getItem("V64_SURVEY_ID");
+        const surveyId = urlParams.get("sid") || localStorage.getItem("V64_SURVEY_ID") || "CHƯA_LƯU_P1";
+
+        function buildScale(containerId, name) {
+            const box = document.getElementById(containerId);
+            if (!box) return;
+            let html = '';
+            for (let i = 1; i <= 10; i++) {
+                html += `<label class="scale-item"><input type="radio" name="${name}" value="${i}" required>${i}</label>`;
+            }
+            box.innerHTML = html;
+        }
+
+        buildScale('sc_bld_trust', 'p3_bld_trust');
+        buildScale('sc_bld_care', 'p3_bld_care');
+
+        // Điều khiển Routing
+        function handleRouting(role) {
+            const bVP = document.getElementById('branch_vanphong');
+            const bCH = document.getElementById('branch_cuahang');
+            const bKho = document.getElementById('branch_kho');
+            const submitWrap = document.getElementById('submitWrap');
+            const btn = document.getElementById('btnSubmitP2');
+
+            bVP.style.display = 'none';
+            bCH.style.display = 'none';
+            bKho.style.display = 'none';
+            submitWrap.style.display = 'block';
+
+            if (role === 'vanphong') {
+                bVP.style.display = 'block';
+                btn.textContent = 'Hoàn Thành & Nộp Bài (Khối Văn Phòng) ✔️';
+            } else if (role === 'cuahang') {
+                bCH.style.display = 'block';
+                btn.textContent = 'Hoàn Thành & Nộp Bài (Khối Cửa Hàng) ✔️';
+            } else if (role === 'kho_online') {
+                bKho.style.display = 'block';
+                btn.textContent = 'Hoàn Thành & Nộp Bài (Khối Kho / Online) ✔️';
+            }
+        }
 
         const form = document.getElementById('formPart2');
-        const submitBtn = form.querySelector('.btn-submit');
+        const submitBtn = document.getElementById('btnSubmitP2');
 
         form.addEventListener('submit', async function (e) {
             e.preventDefault();
 
             const formData = new FormData(form);
-            const payloadData = {};
+            const data = {};
             formData.forEach((value, key) => {
-                payloadData[key] = value;
+                data[key] = value;
             });
 
             submitBtn.disabled = true;
@@ -181,29 +525,28 @@
                     method: "POST",
                     body: JSON.stringify({
                         step: 2,
-                        surveyId: surveyId || "KHONG_RO_ID",
-                        data: payloadData
+                        surveyId: surveyId,
+                        data: data
                     })
                 });
 
                 const res = await response.json();
 
                 if (res.status === "success") {
-                    // Đánh dấu đã hoàn thành toàn bộ
-                    localStorage.setItem("V64_COMPLETED_ALL", "true");
-
-                    alert("🎉 Cảm ơn bạn đã hoàn thành trọn vẹn bài khảo sát EPS 2026!");
+                    localStorage.removeItem("V64_SURVEY_ID");
+                    localStorage.removeItem("V64_P1_DONE");
+                    alert("🎉 Chúc mừng bạn đã hoàn thành trọn vẹn toàn bộ bài khảo sát EPS 2026!\nCảm ơn bạn đã đóng góp ý kiến quý báu.");
                     window.location.href = "index.html";
                 } else {
-                    alert("Lỗi khi gửi dữ liệu: " + res.message);
+                    alert("Lỗi: " + res.message);
                     submitBtn.disabled = false;
-                    submitBtn.textContent = "Hoàn Thành & Gửi Toàn Bộ Khảo Sát ✔️";
+                    submitBtn.textContent = "Hoàn Thành & Gửi Toàn Bộ Bài Khảo Sát ✔️";
                 }
             } catch (err) {
                 console.error(err);
-                alert("Lỗi kết nối mạng. Vui lòng thử lại!");
+                alert("Lỗi kết nối mạng, vui lòng thử lại!");
                 submitBtn.disabled = false;
-                submitBtn.textContent = "Hoàn Thành & Gửi Toàn Bộ Khảo Sát ✔️";
+                submitBtn.textContent = "Hoàn Thành & Gửi Toàn Bộ Bài Khảo Sát ✔️";
             }
         });
     </script>
