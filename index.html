@@ -378,7 +378,26 @@
     </div>
 
     <script>
-        // DÁN LINK GOOGLE APPS SCRIPT CỦA BẠN VÀO GIỮA 2 DẤU NGOẶC KÉP DƯỚI ĐÂY:
+        // 1. KIỂM TRA NGAY KHI MỞ TRANG:
+        (function () {
+            const isCompletedAll = localStorage.getItem("V64_COMPLETED_ALL");
+            const isPart1Done = localStorage.getItem("V64_PART1_COMPLETED");
+            const savedSurveyId = localStorage.getItem("V64_SURVEY_ID");
+
+            // Nếu đã làm xong toàn bộ cả 2 phần:
+            if (isCompletedAll === "true") {
+                alert("Bạn đã hoàn thành trọn vẹn cả 2 phần khảo sát trước đó. Cảm ơn bạn!");
+                return;
+            }
+
+            // Nếu đã xong Phần 1 nhưng chưa xong Phần 2: Tự động chuyển ngay sang Phần 2
+            if (isPart1Done === "true" && savedSurveyId) {
+                alert("Hệ thống nhận thấy bạn đã hoàn thành Phần 1. Đang chuyển tiếp bạn sang Phần 2/2...");
+                window.location.href = `part2.html?sid=${encodeURIComponent(savedSurveyId)}`;
+            }
+        })();
+
+        // 2. XỬ LÝ KHI BẤM NỘP PHẦN 1:
         const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby4HfwSxKzyVRmt2rDXF-R7xxRDSKjqTRjUAscqNRspW8NS2BsaHcOlz4_ekxYKmFgw/exec";
 
         const form = document.getElementById('formPart1');
@@ -387,7 +406,6 @@
         form.addEventListener('submit', async function (e) {
             e.preventDefault();
 
-            // Thu thập dữ liệu form và xử lý checkbox mảng
             const formData = new FormData(form);
             const payloadData = {};
 
@@ -418,9 +436,12 @@
 
                 if (res.status === "success") {
                     const surveyId = res.surveyId;
-                    sessionStorage.setItem("V64_SURVEY_ID", surveyId);
+
+                    // LƯU TRẠNG THÁI VÀO BỘ NHỚ MÁY
+                    localStorage.setItem("V64_SURVEY_ID", surveyId);
+                    localStorage.setItem("V64_PART1_COMPLETED", "true");
+
                     alert("✅ Dữ liệu Phần 1 đã được lưu an toàn!\nBấm OK để tiếp tục sang Phần 2/2.");
-                    // Chuyển hướng sang part2 kèm ID định danh
                     window.location.href = `part2.html?sid=${encodeURIComponent(surveyId)}`;
                 } else {
                     alert("Lỗi khi lưu dữ liệu: " + res.message);

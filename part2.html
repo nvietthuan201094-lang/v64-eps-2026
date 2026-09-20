@@ -155,14 +155,11 @@
             <button type="submit" class="btn-submit">Hoàn Thành & Gửi Toàn Bộ Khảo Sát ✔️</button>
         </form>
     </div>
-
     <script>
-        // DÁN LINK GOOGLE APPS SCRIPT CỦA BẠN VÀO GIỮA 2 DẤU NGOẶC KÉP DƯỚI ĐÂY:
         const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby4HfwSxKzyVRmt2rDXF-R7xxRDSKjqTRjUAscqNRspW8NS2BsaHcOlz4_ekxYKmFgw/exec";
-
-        // Lấy mã Survey ID từ đường link hoặc bộ nhớ phiên
+        // Lấy mã Survey ID từ URL hoặc lấy trực tiếp từ localStorage
         const urlParams = new URLSearchParams(window.location.search);
-        const surveyId = urlParams.get("sid") || sessionStorage.getItem("V64_SURVEY_ID");
+        const surveyId = urlParams.get("sid") || localStorage.getItem("V64_SURVEY_ID");
 
         const form = document.getElementById('formPart2');
         const submitBtn = form.querySelector('.btn-submit');
@@ -192,9 +189,10 @@
                 const res = await response.json();
 
                 if (res.status === "success") {
-                    sessionStorage.removeItem("V64_SURVEY_ID");
+                    // Đánh dấu đã hoàn thành toàn bộ
+                    localStorage.setItem("V64_COMPLETED_ALL", "true");
+
                     alert("🎉 Cảm ơn bạn đã hoàn thành trọn vẹn bài khảo sát EPS 2026!");
-                    // Chuyển hướng về trang chủ của Phần 1
                     window.location.href = "index.html";
                 } else {
                     alert("Lỗi khi gửi dữ liệu: " + res.message);
