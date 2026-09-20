@@ -704,7 +704,6 @@
 
         const form = document.getElementById('formPart2');
         const submitBtn = document.getElementById('btnSubmitP2');
-        const successScreen = document.getElementById('successScreen');
 
         form.addEventListener('submit', async function (e) {
             e.preventDefault();
@@ -749,11 +748,8 @@
                     localStorage.removeItem("V64_P1_DONE");
                     localStorage.setItem("V64_COMPLETED_ALL", "true");
 
-                    // ẨN FORM VÀ HIỆN MÀN HÌNH CẢM ƠN TO RÕ
-                    form.style.display = "none";
-                    document.querySelector('.hdr').style.display = "none";
-                    successScreen.style.display = "block";
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    // 👉 CHUYỂN TIẾP SANG FILE HOÀN THÀNH RIÊNG BIỆT (CÁCH 1):
+                    window.location.href = "success.html";
 
                 } else {
                     alert("Có lỗi lưu dữ liệu: " + res.message);
