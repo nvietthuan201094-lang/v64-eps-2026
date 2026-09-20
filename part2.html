@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V64 EPS 2026 — Khảo sát Sức khỏe Doanh nghiệp (Phần 2/2)</title>
+    <style>
+        :root {
+            --primary-color: #059669;
+            --bg-color: #ecfdf5;
+            --card-bg: #ffffff;
+            --border-color: #e5e7eb;
+            --text-color: #1f2937;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            border-top: 6px solid var(--primary-color);
+        }
+
+        .card-section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            color: #065f46;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: #047857;
+            border-bottom: 2px solid #a7f3d0;
+            padding-bottom: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label.question-title {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        textarea,
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+
+        textarea {
+            height: 90px;
+            resize: vertical;
+        }
+
+        button.btn-submit {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
+        }
+
+        button.btn-submit:hover {
+            background-color: #047857;
+        }
+
+        button.btn-submit:disabled {
+            background-color: #9ca3af;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>V64 EPS 2026(FN) — Khảo sát Sức khỏe Doanh nghiệp [Phần 2/2]</h1>
+            <p>🔒 <strong>PHẦN 2/2 — ĐÁNH GIÁ LÃNH ĐẠO & ĐỀ XUẤT PHÁT TRIỂN</strong></p>
+            <p>⏱ Thời gian hoàn thành Phần 2: khoảng 5–7 phút.</p>
+        </div>
+
+        <form id="formPart2">
+            <!-- PHẦN 3 -->
+            <div class="card-section">
+                <h2>📢 PHẦN 3 — ĐÁNH GIÁ LÃNH ĐẠO & BAN LÃNH ĐẠO</h2>
+                <div class="form-group">
+                    <label class="question-title">🚨 Hành động CỤ THỂ nào mà Ban Lãnh Đạo cần làm NGAY trong 30 ngày tới
+                        để khôi phục niềm tin?</label>
+                    <textarea name="action_30_days"
+                        placeholder="Ví dụ: họp toàn công ty, minh bạch tài chính, cam kết lịch lương..."></textarea>
+                </div>
+            </div>
+
+            <!-- PHẦN 5: STOP - CONTINUE - START -->
+            <div class="card-section">
+                <h2>💡 PHẦN 5 — KHUNG ĐỀ XUẤT STOP — CONTINUE — START</h2>
+                <div class="form-group">
+                    <label class="question-title">🔴 DỪNG LẠI — Những việc Ban Lãnh Đạo cần DỪNG ngay vì gây hại hơn
+                        lợi:</label>
+                    <textarea name="action_stop" placeholder="Những việc cần dừng ngay..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="question-title">🟡 TIẾP TỤC — Những việc đang làm tốt, cần phát huy:</label>
+                    <textarea name="action_continue" placeholder="Những việc cần tiếp tục..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="question-title">🟢 BẮT ĐẦU — Những việc cần khởi động ngay để vực dậy tình
+                        hình:</label>
+                    <textarea name="action_start" placeholder="Những việc cần bắt đầu ngay..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="question-title">🌟 Nếu bạn là Giám đốc V64 trong 1 ngày, điều đầu tiên bạn sẽ làm là
+                        gì?</label>
+                    <textarea name="if_ceo" placeholder="Chia sẻ ý tưởng của bạn..."></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit">Hoàn Thành & Gửi Toàn Bộ Khảo Sát ✔️</button>
+        </form>
+    </div>
+
+    <script>
+        // DÁN LINK GOOGLE APPS SCRIPT CỦA BẠN VÀO GIỮA 2 DẤU NGOẶC KÉP DƯỚI ĐÂY:
+        const SCRIPT_URL = "DÁN_URL_WEB_APP_Ở_BƯỚC_1_VÀO_ĐÂY";
+
+        // Lấy mã Survey ID từ đường link hoặc bộ nhớ phiên
+        const urlParams = new URLSearchParams(window.location.search);
+        const surveyId = urlParams.get("sid") || sessionStorage.getItem("V64_SURVEY_ID");
+
+        const form = document.getElementById('formPart2');
+        const submitBtn = form.querySelector('.btn-submit');
+
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const payloadData = {};
+            formData.forEach((value, key) => {
+                payloadData[key] = value;
+            });
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = "⏳ Đang ghi nhận kết quả cuối cùng...";
+
+            try {
+                const response = await fetch(SCRIPT_URL, {
+                    method: "POST",
+                    body: JSON.stringify({
+                        step: 2,
+                        surveyId: surveyId || "KHONG_RO_ID",
+                        data: payloadData
+                    })
+                });
+
+                const res = await response.json();
+
+                if (res.status === "success") {
+                    sessionStorage.removeItem("V64_SURVEY_ID");
+                    alert("🎉 Cảm ơn bạn đã hoàn thành trọn vẹn bài khảo sát EPS 2026!");
+                    // Chuyển hướng về trang chủ của Phần 1
+                    window.location.href = "index.html";
+                } else {
+                    alert("Lỗi khi gửi dữ liệu: " + res.message);
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = "Hoàn Thành & Gửi Toàn Bộ Khảo Sát ✔️";
+                }
+            } catch (err) {
+                console.error(err);
+                alert("Lỗi kết nối mạng. Vui lòng thử lại!");
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Hoàn Thành & Gửi Toàn Bộ Khảo Sát ✔️";
+            }
+        });
+    </script>
+</body>
+
+</html>
