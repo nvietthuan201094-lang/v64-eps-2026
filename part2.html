@@ -87,7 +87,7 @@
         }
 
         .q-sub {
-            font-size: .8rem;
+            font-size: .82rem;
             color: var(--slate);
             margin-bottom: 8px
         }
@@ -110,7 +110,7 @@
             gap: 10px;
             font-size: .88rem;
             cursor: pointer;
-            padding: 6px 10px;
+            padding: 7px 12px;
             border-radius: 6px;
             background: #f9fafb
         }
@@ -155,7 +155,7 @@
         table.matrix th:first-child,
         table.matrix td:first-child {
             text-align: left;
-            width: 45%
+            width: 48%
         }
 
         textarea,
@@ -255,7 +255,7 @@
                                 <td><input type="radio" name="p3_mng_support" value="5"></td>
                             </tr>
                             <tr>
-                                <td>Công bằng trong đánh giá & phân công</td>
+                                <td>Công bằng trong đánh giá kết quả & phân công</td>
                                 <td><input type="radio" name="p3_mng_fair" value="1" required></td>
                                 <td><input type="radio" name="p3_mng_fair" value="2"></td>
                                 <td><input type="radio" name="p3_mng_fair" value="3"></td>
@@ -263,7 +263,23 @@
                                 <td><input type="radio" name="p3_mng_fair" value="5"></td>
                             </tr>
                             <tr>
-                                <td>Ra quyết định kịp thời, dứt khoát</td>
+                                <td>Truyền cảm hứng & duy trì tinh thần cho đội nhóm</td>
+                                <td><input type="radio" name="p3_mng_inspire" value="1" required></td>
+                                <td><input type="radio" name="p3_mng_inspire" value="2"></td>
+                                <td><input type="radio" name="p3_mng_inspire" value="3"></td>
+                                <td><input type="radio" name="p3_mng_inspire" value="4"></td>
+                                <td><input type="radio" name="p3_mng_inspire" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>Linh hoạt & ứng biến tốt khi có biến động</td>
+                                <td><input type="radio" name="p3_mng_agile" value="1" required></td>
+                                <td><input type="radio" name="p3_mng_agile" value="2"></td>
+                                <td><input type="radio" name="p3_mng_agile" value="3"></td>
+                                <td><input type="radio" name="p3_mng_agile" value="4"></td>
+                                <td><input type="radio" name="p3_mng_agile" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>Ra quyết định kịp thời, không để nhân viên chờ đợi</td>
                                 <td><input type="radio" name="p3_mng_decision" value="1" required></td>
                                 <td><input type="radio" name="p3_mng_decision" value="2"></td>
                                 <td><input type="radio" name="p3_mng_decision" value="3"></td>
@@ -285,72 +301,185 @@
                     <textarea name="p3_mng_change" required placeholder="Nhập ý kiến của bạn..."></textarea>
                 </div>
 
-                <div class="q-title" style="margin-top:20px;color:var(--teal)">3.2 Đánh giá Ban Lãnh Đạo (Thang 1–10)
-                </div>
+                <div class="q-title" style="margin-top:22px;color:var(--teal)">3.2 Đánh giá Ban Lãnh Đạo (Thang điểm
+                    1–10)</div>
                 <div class="form-group">
                     <div class="q-title">Tôi tin tưởng vào năng lực lãnh đạo của Ban Lãnh Đạo <span
                             class="required">*</span></div>
                     <div class="scale-wrap" id="sc_bld_trust"></div>
                 </div>
                 <div class="form-group">
-                    <div class="q-title">Ban Lãnh Đạo quan tâm thực sự đến người lao động <span
+                    <div class="q-title">Ban Lãnh Đạo đưa ra quyết định đúng hướng cho giai đoạn hiện tại <span
                             class="required">*</span></div>
+                    <div class="scale-wrap" id="sc_bld_direction"></div>
+                </div>
+                <div class="form-group">
+                    <div class="q-title">Ban Lãnh Đạo quan tâm thực sự đến người lao động, không chỉ kết quả kinh doanh
+                        <span class="required">*</span>
+                    </div>
                     <div class="scale-wrap" id="sc_bld_care"></div>
                 </div>
                 <div class="form-group">
+                    <div class="q-title">Tôi tin V64 sẽ vượt qua giai đoạn khó khăn hiện tại <span
+                            class="required">*</span></div>
+                    <div class="scale-wrap" id="sc_bld_overcome"></div>
+                </div>
+
+                <div class="form-group">
                     <div class="q-title">🚨 Hành động CỤ THỂ nào mà Ban Lãnh Đạo cần làm NGAY trong 30 ngày tới để khôi
                         phục niềm tin? <span class="required">*</span></div>
+                    <div class="q-sub">Ví dụ: họp toàn công ty, minh bạch tài chính, cam kết lịch lương rõ ràng...</div>
                     <textarea name="p3_action_30_days" required
-                        placeholder="Ví dụ: họp toàn công ty, minh bạch tài chính, lịch chi trả lương rõ ràng..."></textarea>
+                        placeholder="Hãy nói hành động cụ thể nhất có thể thực hiện..."></textarea>
                 </div>
             </div>
 
             <!-- PHẦN 4 -->
             <div class="section-block">
                 <div class="sec-title">🔗 PHẦN 4 — SỰ PHỐI HỢP LIÊN PHÒNG BAN</div>
+                <div class="q-sub" style="margin-bottom:12px">Thang điểm 1–5: [1] Rất kém / Gần như không phối hợp ···
+                    [5] Rất tốt, nhịp nhàng</div>
+
+                <div class="form-group">
+                    <div class="q-title">Đánh giá mức độ phối hợp với các bộ phận: <span class="required">*</span></div>
+                    <table class="matrix">
+                        <thead>
+                            <tr>
+                                <th>Bộ phận</th>
+                                <th>1</th>
+                                <th>2</th>
+                                <th>3</th>
+                                <th>4</th>
+                                <th>5</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Kinh doanh Online (TMĐT)</td>
+                                <td><input type="radio" name="p4_dept_online" value="1" required></td>
+                                <td><input type="radio" name="p4_dept_online" value="2"></td>
+                                <td><input type="radio" name="p4_dept_online" value="3"></td>
+                                <td><input type="radio" name="p4_dept_online" value="4"></td>
+                                <td><input type="radio" name="p4_dept_online" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>CSKH & Sale Online</td>
+                                <td><input type="radio" name="p4_dept_cskh" value="1" required></td>
+                                <td><input type="radio" name="p4_dept_cskh" value="2"></td>
+                                <td><input type="radio" name="p4_dept_cskh" value="3"></td>
+                                <td><input type="radio" name="p4_dept_cskh" value="4"></td>
+                                <td><input type="radio" name="p4_dept_cskh" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>Kho / Cung ứng / Sản phẩm</td>
+                                <td><input type="radio" name="p4_dept_kho" value="1" required></td>
+                                <td><input type="radio" name="p4_dept_kho" value="2"></td>
+                                <td><input type="radio" name="p4_dept_kho" value="3"></td>
+                                <td><input type="radio" name="p4_dept_kho" value="4"></td>
+                                <td><input type="radio" name="p4_dept_kho" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>Marketing</td>
+                                <td><input type="radio" name="p4_dept_mkt" value="1" required></td>
+                                <td><input type="radio" name="p4_dept_mkt" value="2"></td>
+                                <td><input type="radio" name="p4_dept_mkt" value="3"></td>
+                                <td><input type="radio" name="p4_dept_mkt" value="4"></td>
+                                <td><input type="radio" name="p4_dept_mkt" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>Tài chính – Kế toán</td>
+                                <td><input type="radio" name="p4_dept_ketoan" value="1" required></td>
+                                <td><input type="radio" name="p4_dept_ketoan" value="2"></td>
+                                <td><input type="radio" name="p4_dept_ketoan" value="3"></td>
+                                <td><input type="radio" name="p4_dept_ketoan" value="4"></td>
+                                <td><input type="radio" name="p4_dept_ketoan" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>Hành chính – Nhân sự</td>
+                                <td><input type="radio" name="p4_dept_hr" value="1" required></td>
+                                <td><input type="radio" name="p4_dept_hr" value="2"></td>
+                                <td><input type="radio" name="p4_dept_hr" value="3"></td>
+                                <td><input type="radio" name="p4_dept_hr" value="4"></td>
+                                <td><input type="radio" name="p4_dept_hr" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>Khối Cửa hàng (Offline)</td>
+                                <td><input type="radio" name="p4_dept_store" value="1" required></td>
+                                <td><input type="radio" name="p4_dept_store" value="2"></td>
+                                <td><input type="radio" name="p4_dept_store" value="3"></td>
+                                <td><input type="radio" name="p4_dept_store" value="4"></td>
+                                <td><input type="radio" name="p4_dept_store" value="5"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
                 <div class="form-group">
                     <div class="q-title">🚧 Điểm nghẽn vận hành LỚN NHẤT đang làm chậm dòng tiền hoặc giảm trải nghiệm
-                        khách hàng là gì? <span class="required">*</span></div>
+                        khách hàng? <span class="required">*</span></div>
                     <textarea name="p4_bottleneck" required
-                        placeholder="Vấn đề gì, xảy ra ở đâu, do bộ phận nào, hậu quả ra sao..."></textarea>
+                        placeholder="Mô tả cụ thể vấn đề gì, xảy ra ở đâu, hậu quả thực tế..."></textarea>
                 </div>
                 <div class="form-group">
-                    <div class="q-title">💡 Đề xuất của bạn để cải thiện sự phối hợp liên phòng ban: <span
+                    <div class="q-title">💡 Để cải thiện sự phối hợp liên phòng ban, bạn đề xuất điều gì? <span
                             class="required">*</span></div>
-                    <textarea name="p4_collab_solution" required placeholder="Nhập đề xuất cụ thể..."></textarea>
+                    <textarea name="p4_collab_solution" required placeholder="Đề xuất của bạn..."></textarea>
                 </div>
             </div>
 
             <!-- PHẦN 5 -->
             <div class="section-block">
-                <div class="sec-title">💡 PHẦN 5 — ĐỀ XUẤT THAY ĐỔI (STOP — CONTINUE — START)</div>
+                <div class="sec-title">💡 PHẦN 5 — ĐÁNH GIÁ CÔNG TY & ĐỀ XUẤT THAY ĐỔI</div>
+
                 <div class="form-group">
-                    <div class="q-title">🔴 DỪNG LẠI — Những việc Ban Lãnh Đạo cần DỪNG ngay: <span
+                    <div class="q-title">🔴 DỪNG LẠI — Những việc Ban Lãnh Đạo cần DỪNG ngay vì gây hại hơn lợi: <span
                             class="required">*</span></div>
-                    <textarea name="p5_stop" required
-                        placeholder="Những việc cần dừng ngay vì hại nhiều hơn lợi..."></textarea>
+                    <textarea name="p5_stop" required placeholder="Những việc cần dừng ngay..."></textarea>
                 </div>
                 <div class="form-group">
                     <div class="q-title">🟡 TIẾP TỤC — Những việc đang làm tốt, cần phát huy: <span
                             class="required">*</span></div>
-                    <textarea name="p5_continue" required placeholder="Những điểm sáng cần duy trì..."></textarea>
+                    <textarea name="p5_continue" required placeholder="Những việc đang làm tốt..."></textarea>
                 </div>
                 <div class="form-group">
                     <div class="q-title">🟢 BẮT ĐẦU — Những việc cần khởi động ngay để vực dậy tình hình: <span
                             class="required">*</span></div>
-                    <textarea name="p5_start" required placeholder="Ý tưởng hoặc quy trình cần bắt đầu..."></textarea>
+                    <textarea name="p5_start" required placeholder="Những việc cần bắt đầu ngay..."></textarea>
+                </div>
+                <div class="form-group">
+                    <div class="q-title">🙋 Tôi — cá nhân tôi — có thể làm gì CỤ THỂ trong 30 ngày tới để giúp V64 tăng
+                        doanh số / tiết kiệm chi phí? <span class="required">*</span></div>
+                    <textarea name="p5_my_action" required placeholder="Hành động nhỏ mà thực tế của bạn..."></textarea>
                 </div>
                 <div class="form-group">
                     <div class="q-title">🌟 Nếu bạn là Giám đốc V64 trong 1 ngày, điều đầu tiên bạn sẽ làm là gì? <span
                             class="required">*</span></div>
-                    <textarea name="p5_if_ceo" required placeholder="Chia sẻ quyết định đầu tiên của bạn..."></textarea>
+                    <textarea name="p5_if_ceo" required placeholder="Ý tưởng của bạn..."></textarea>
+                </div>
+
+                <div class="q-title" style="margin-top:22px;color:var(--dark)">5.2 Hoàn thành câu (Viết điều ĐẦU TIÊN
+                    xuất hiện trong đầu bạn)</div>
+                <div class="form-group">
+                    <div class="q-title">1. Khi tôi bước vào V64 mỗi sáng, tôi cảm thấy... <span
+                            class="required">*</span></div>
+                    <textarea name="p5_sentence_1" required placeholder="Cảm giác của bạn..."></textarea>
+                </div>
+                <div class="form-group">
+                    <div class="q-title">2. Điều tôi chưa bao giờ nói với quản lý nhưng thực sự muốn nói là... <span
+                            class="required">*</span></div>
+                    <textarea name="p5_sentence_2" required placeholder="Điều bạn muốn nói..."></textarea>
+                </div>
+                <div class="form-group">
+                    <div class="q-title">3. Nếu V64 là một người, người đó đang... <span class="required">*</span></div>
+                    <textarea name="p5_sentence_3" required placeholder="Người đó đang ra sao..."></textarea>
                 </div>
             </div>
 
-            <!-- BƯỚC ROUTING -->
+            <!-- BƯỚC ROUTING THEO SƠ ĐỒ -->
             <div class="routing-box">
-                <div class="q-title" style="font-size:1.1rem;color:#92400E">🔀 BƯỚC CUỐI — CHỌN KHỐI LÀM VIỆC ĐỂ MỞ CÂU
-                    HỎI CHUYÊN BIỆT <span class="required">*</span></div>
+                <div class="q-title" style="font-size:1.1rem;color:#92400E">🔀 BƯỚC CUỐI — BẠN THUỘC KHỐI LÀM VIỆC NÀO?
+                    <span class="required">*</span>
+                </div>
                 <div class="radio-group" style="margin-top:12px">
                     <label class="radio-opt" style="background:white">
                         <input type="radio" name="routing_role" value="cuahang" required
@@ -359,7 +488,7 @@
                     </label>
                     <label class="radio-opt" style="background:white">
                         <input type="radio" name="routing_role" value="vanphong" onchange="handleRouting(this.value)">
-                        <strong>🏢 Khối 2: Văn phòng</strong> (Marketing, Kế toán, HCNS, Sản phẩm, Quản lý...)
+                        <strong>🏢 Khối 2: Văn phòng</strong> (Marketing, Kế toán, HCNS, Sản phẩm...)
                     </label>
                     <label class="radio-opt" style="background:white">
                         <input type="radio" name="routing_role" value="kho_online" onchange="handleRouting(this.value)">
@@ -372,21 +501,21 @@
             <div id="branch_vanphong" class="branch-block">
                 <div class="section-block" style="background:#EFF6FF;border-left:5px solid #2563EB">
                     🎉 <strong>Khối Văn phòng đã hoàn thành toàn bộ nội dung khảo sát!</strong><br>
-                    Bạn không cần thực hiện thêm các phần thực địa bên dưới. Hãy bấm nút <strong>Gửi Bài</strong> bên
-                    dưới để hoàn tất nhé.
+                    Bạn không cần làm thêm câu hỏi thực địa. Hãy bấm nút <strong>Gửi Bài</strong> bên dưới để hoàn tất
+                    nhé. Chân thành cảm ơn bạn! ❤️
                 </div>
             </div>
 
-            <!-- NHÁNH CỬA HÀNG (6B & 5B SJT) -->
+            <!-- NHÁNH CỬA HÀNG (6B + 4 TÌNH HUỐNG SJT) -->
             <div id="branch_cuahang" class="branch-block">
                 <div class="section-block">
-                    <div class="sec-title" style="color:var(--grn)">🏪 6B.1 — CÂU HỎI TÌNH HUỐNG THỰC TẾ (SJT)</div>
+                    <div class="sec-title" style="color:var(--grn)">🏪 PHẦN 6B — DÀNH RIÊNG CHO KHỐI CỬA HÀNG</div>
 
+                    <div class="q-title" style="color:var(--grn);margin-bottom:12px">🎯 6B.1 — TÌNH HUỐNG THỰC TẾ (SJT)
+                    </div>
                     <div class="form-group">
-                        <div class="q-title">🎯 TÌNH HUỐNG 1 — Thiếu nhân sự đột xuất <span class="required">*</span>
-                        </div>
-                        <div class="q-sub">Ca của bạn sắp hết, người thay ca chưa đến, đang có 3 khách trong cửa hàng.
-                            Bạn làm gì?</div>
+                        <div class="q-title">Tình huống 1: Thiếu nhân sự đột xuất (ca sắp hết, khách đông, người thay ca
+                            chưa tới) <span class="required">*</span></div>
                         <div class="radio-group">
                             <label class="radio-opt"><input type="radio" name="sjt_1" value="A"> A. Đợi thêm 15 phút rồi
                                 về đúng giờ</label>
@@ -400,33 +529,60 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="q-title">🎯 TÌNH HUỐNG 2 — Khách phàn nàn trước đám đông <span
-                                class="required">*</span></div>
-                        <div class="q-sub">Khách phàn nàn lớn tiếng, dọa bóc phốt lên mạng xã hội. Bạn xử lý thế nào?
+                        <div class="q-title">Tình huống 2: Khách hàng phàn nàn lớn tiếng trước mặt nhiều khách khác
+                            <span class="required">*</span>
                         </div>
                         <div class="radio-group">
                             <label class="radio-opt"><input type="radio" name="sjt_2" value="A"> A. Xin lỗi ngay, đề
                                 nghị hoàn tiền</label>
                             <label class="radio-opt"><input type="radio" name="sjt_2" value="B"> B. Bình tĩnh lắng nghe,
-                                thừa nhận vấn đề, mời vào khu vực riêng trao đổi</label>
-                            <label class="radio-opt"><input type="radio" name="sjt_2" value="C"> C. Giải thích ngay
-                                khách đã hiểu sai</label>
+                                thừa nhận vấn đề, mời vào khu vực riêng</label>
+                            <label class="radio-opt"><input type="radio" name="sjt_2" value="C"> C. Giải thích bảo vệ
+                                thương hiệu ngay</label>
                             <label class="radio-opt"><input type="radio" name="sjt_2" value="D"> D. Gọi ngay cho quản
                                 lý</label>
                         </div>
                     </div>
 
-                    <div class="sec-title" style="color:var(--grn);margin-top:20px">6B.2 — ĐIỀU KIỆN VẬN HÀNH TẠI CỬA
-                        HÀNG</div>
+                    <div class="form-group">
+                        <div class="q-title">Tình huống 3: Kế hoạch trong cuộc họp có lỗ hổng nghiêm trọng <span
+                                class="required">*</span></div>
+                        <div class="radio-group">
+                            <label class="radio-opt"><input type="radio" name="sjt_3" value="A"> A. Im lặng</label>
+                            <label class="radio-opt"><input type="radio" name="sjt_3" value="B"> B. Nêu ý kiến lại trong
+                                cuộc họp</label>
+                            <label class="radio-opt"><input type="radio" name="sjt_3" value="C"> C. Gặp riêng quản lý
+                                sau buổi họp</label>
+                            <label class="radio-opt"><input type="radio" name="sjt_3" value="D"> D. Gửi ghi chú qua
+                                email</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="q-title">Tình huống 4: Đồng nghiệp thân thiết vi phạm quy định nội bộ <span
+                                class="required">*</span></div>
+                        <div class="radio-group">
+                            <label class="radio-opt"><input type="radio" name="sjt_4" value="A"> A. Làm ngơ</label>
+                            <label class="radio-opt"><input type="radio" name="sjt_4" value="B"> B. Nói chuyện thẳng
+                                thắn với đồng nghiệp</label>
+                            <label class="radio-opt"><input type="radio" name="sjt_4" value="C"> C. Báo cáo ngay cho
+                                quản lý / HR</label>
+                            <label class="radio-opt"><input type="radio" name="sjt_4" value="D"> D. Quan sát
+                                thêm</label>
+                        </div>
+                    </div>
+
+                    <div class="sec-title" style="color:var(--grn);margin-top:20px">6B.2 — VẬN HÀNH TẠI CỬA HÀNG</div>
                     <div class="form-group">
                         <div class="q-title">🛒 Phản hồi / Khiếu nại phổ biến nhất của khách hàng thời gian qua là gì?
+                            <span class="required">*</span>
                         </div>
-                        <textarea name="p6b_customer_complaint"
-                            placeholder="Về mẫu mã, giá cả, size số, chất lượng hay dịch vụ..."></textarea>
+                        <textarea name="p6b_complaints"
+                            placeholder="Về sản phẩm, giá cả, dịch vụ, mẫu mã..."></textarea>
                     </div>
                     <div class="form-group">
                         <div class="q-title">💡 Nếu thay đổi 1 điều ngay hôm nay tại cửa hàng để tăng doanh số, bạn chọn
-                            gì?</div>
+                            gì? <span class="required">*</span></div>
                         <textarea name="p6b_idea_sales" placeholder="Ý kiến cụ thể của bạn..."></textarea>
                     </div>
                 </div>
@@ -435,20 +591,25 @@
             <!-- NHÁNH KHO / ONLINE (6C) -->
             <div id="branch_kho" class="branch-block">
                 <div class="section-block">
-                    <div class="sec-title" style="color:var(--org)">📦 6C — KHẢO SÁT KHỐI KHO / SALE ONLINE</div>
-
-                    <div class="form-group">
-                        <div class="q-title">Khó khăn lớn nhất trong việc phối hợp xử lý đơn hàng và kiểm soát tồn kho
-                            là gì?</div>
-                        <textarea name="p6c_bottleneck_kho"
-                            placeholder="Mô tả sự cố thực tế bạn thường gặp..."></textarea>
+                    <div class="sec-title" style="color:var(--org)">📦 PHẦN 6C — DÀNH RIÊNG CHO KHỐI KHO / SALE ONLINE
                     </div>
 
                     <div class="form-group">
-                        <div class="q-title">📦 Công cụ hoặc tài nguyên nào bạn cần trang bị thêm để làm việc hiệu quả
-                            hơn?</div>
-                        <textarea name="p6c_tools_needed"
-                            placeholder="Ví dụ: máy in nhiệt, phần mềm quản lý kho, CRM, xe đẩy..."></textarea>
+                        <div class="q-title">🔑 Điểm nghẽn vận hành cụ thể nhất trong công việc hàng ngày của bạn là gì?
+                            <span class="required">*</span>
+                        </div>
+                        <textarea name="p6c_bottleneck" placeholder="Mô tả sự cố thực tế bạn thường gặp..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <div class="q-title">💡 Đề xuất của bạn để cải thiện vận hành trong 30 ngày tới: <span
+                                class="required">*</span></div>
+                        <textarea name="p6c_solution" placeholder="Đề xuất giải pháp..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <div class="q-title">📦 Công cụ hoặc tài nguyên nào bạn cần thêm để làm việc hiệu quả hơn? <span
+                                class="required">*</span></div>
+                        <textarea name="p6c_tools"
+                            placeholder="Ví dụ: máy in nhiệt, phần mềm kho, CRM, xe kéo hàng..."></textarea>
                     </div>
                 </div>
             </div>
@@ -463,7 +624,6 @@
     <script>
         const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby4HfwSxKzyVRmt2rDXF-R7xxRDSKjqTRjUAscqNRspW8NS2BsaHcOlz4_ekxYKmFgw/exec";
 
-        // Lấy mã Survey ID truyền từ Phần 1 sang
         const urlParams = new URLSearchParams(window.location.search);
         const surveyId = urlParams.get("sid") || localStorage.getItem("V64_SURVEY_ID") || "CHƯA_LƯU_P1";
 
@@ -478,9 +638,11 @@
         }
 
         buildScale('sc_bld_trust', 'p3_bld_trust');
+        buildScale('sc_bld_direction', 'p3_bld_direction');
         buildScale('sc_bld_care', 'p3_bld_care');
+        buildScale('sc_bld_overcome', 'p3_bld_overcome');
 
-        // Điều khiển Routing
+        // Điều khiển Routing mượt mà và quản lý cờ required
         function handleRouting(role) {
             const bVP = document.getElementById('branch_vanphong');
             const bCH = document.getElementById('branch_cuahang');
@@ -491,18 +653,36 @@
             bVP.style.display = 'none';
             bCH.style.display = 'none';
             bKho.style.display = 'none';
+
+            // Tắt bắt buộc cho tất cả các nhánh để tránh lỗi chặn nộp bài
+            setBranchRequired(bCH, false);
+            setBranchRequired(bKho, false);
+
             submitWrap.style.display = 'block';
 
             if (role === 'vanphong') {
                 bVP.style.display = 'block';
-                btn.textContent = 'Hoàn Thành & Nộp Bài (Khối Văn Phòng) ✔️';
+                btn.textContent = 'Hoàn Thành & Nộp Bài Khảo Sát (Khối Văn Phòng) ✔️';
             } else if (role === 'cuahang') {
                 bCH.style.display = 'block';
-                btn.textContent = 'Hoàn Thành & Nộp Bài (Khối Cửa Hàng) ✔️';
+                setBranchRequired(bCH, true);
+                btn.textContent = 'Hoàn Thành & Nộp Bài Khảo Sát (Khối Cửa Hàng) ✔️';
             } else if (role === 'kho_online') {
                 bKho.style.display = 'block';
-                btn.textContent = 'Hoàn Thành & Nộp Bài (Khối Kho / Online) ✔️';
+                setBranchRequired(bKho, true);
+                btn.textContent = 'Hoàn Thành & Nộp Bài Khảo Sát (Khối Kho / Online) ✔️';
             }
+        }
+
+        function setBranchRequired(container, isRequired) {
+            const inputs = container.querySelectorAll('textarea, input[type="radio"]');
+            inputs.forEach(el => {
+                if (isRequired) {
+                    el.setAttribute('required', 'true');
+                } else {
+                    el.removeAttribute('required');
+                }
+            });
         }
 
         const form = document.getElementById('formPart2');
@@ -535,7 +715,7 @@
                 if (res.status === "success") {
                     localStorage.removeItem("V64_SURVEY_ID");
                     localStorage.removeItem("V64_P1_DONE");
-                    alert("🎉 Chúc mừng bạn đã hoàn thành trọn vẹn toàn bộ bài khảo sát EPS 2026!\nCảm ơn bạn đã đóng góp ý kiến quý báu.");
+                    alert("🎉 Cảm ơn bạn đã dành thời gian hoàn thành trọn vẹn bài khảo sát EPS 2026! ❤️");
                     window.location.href = "index.html";
                 } else {
                     alert("Lỗi: " + res.message);

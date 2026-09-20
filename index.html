@@ -68,9 +68,9 @@
             background: rgba(184, 153, 106, .15);
             color: var(--gold);
             border: 1px solid rgba(184, 153, 106, .4);
-            padding: 4px 12px;
+            padding: 4px 14px;
             border-radius: 20px;
-            font-size: .8rem;
+            font-size: .82rem;
             display: inline-block;
             margin-top: 10px
         }
@@ -78,10 +78,10 @@
         .desc {
             background: var(--tl);
             border-left: 4px solid var(--teal);
-            padding: 16px 20px;
+            padding: 18px 22px;
             border-radius: 0 8px 8px 0;
             margin-bottom: 20px;
-            font-size: .9rem
+            font-size: .92rem
         }
 
         .section-block {
@@ -113,7 +113,7 @@
         }
 
         .q-sub {
-            font-size: .8rem;
+            font-size: .82rem;
             color: var(--slate);
             margin-bottom: 8px
         }
@@ -146,7 +146,7 @@
             gap: 10px;
             font-size: .88rem;
             cursor: pointer;
-            padding: 6px 10px;
+            padding: 7px 12px;
             border-radius: 6px;
             background: #f9fafb
         }
@@ -191,7 +191,7 @@
         table.matrix th:first-child,
         table.matrix td:first-child {
             text-align: left;
-            width: 45%
+            width: 48%
         }
 
         textarea,
@@ -238,13 +238,19 @@
     <div class="wrap">
         <div class="hdr">
             <h1>V64 EPS 2026 — Khảo sát Sức khỏe Doanh nghiệp</h1>
-            <p>PHẦN 1/2 — TỰ ĐÁNH GIÁ CÁ NHÂN & MÔI TRƯỜNG LÀM VIỆC</p>
-            <span class="meta-chip">🔒 Khảo sát hoàn toàn ẩn danh · Khoảng 8–10 phút</span>
+            <p>BẢN KHẢO SÁT CHÍNH THỨC — [PHẦN 1/2]</p>
+            <span class="meta-chip">🔒 Bài khảo sát hoàn toàn ẩn danh · Khoảng 8–10 phút</span>
         </div>
 
         <div class="desc">
-            ⏱ <strong>ĐÂY LÀ PHẦN 1/2:</strong> Sau khi hoàn thành và bấm gửi ở cuối trang, hệ thống sẽ <strong>tự động
-                lưu an toàn</strong> dữ liệu phần này và chuyển bạn sang Phần 2/2 để tiếp tục.
+            🔒 <strong>BÀI KHẢO SÁT HOÀN TOÀN ẨN DANH:</strong><br>
+            Tên và thông tin cá nhân không được ghi nhận. Kết quả khảo sát chỉ được tổng hợp theo bộ phận và toàn Công
+            ty, nhằm giúp Phòng Nhân sự có thêm cơ sở để cải thiện môi trường làm việc và xây dựng chính sách tốt hơn
+            cho mọi người.<br><br>
+            Khảo sát không mang tính đánh giá cá nhân và không có câu trả lời đúng hay sai. Hãy chia sẻ thật lòng và
+            theo cảm nhận thực tế của bạn nhé. ❤️<br><br>
+            ⏱ <strong>ĐÂY LÀ PHẦN 1/2:</strong> Sau khi hoàn thành, hệ thống sẽ tự động lưu bài và chuyển bạn sang Phần
+            2/2.
         </div>
 
         <form id="formPart1">
@@ -253,13 +259,11 @@
                 <div class="sec-title">📋 PHẦN A — THÔNG TIN CƠ BẢN</div>
 
                 <div class="form-group">
-                    <div class="q-title">Bạn đang làm việc tại bộ phận / vị trí nào? <span class="required">*</span>
-                    </div>
+                    <div class="q-title">Bạn đang làm việc tại bộ phận nào? <span class="required">*</span></div>
                     <div class="radio-group">
-                        <label class="radio-opt"><input type="radio" name="pA_department"
-                                value="Cửa hàng — Nhân viên bán hàng" required> Cửa hàng — Nhân viên bán hàng</label>
-                        <label class="radio-opt"><input type="radio" name="pA_department"
-                                value="Cửa hàng — Cửa hàng Trưởng"> Cửa hàng — Cửa hàng Trưởng</label>
+                        <!-- GOM KHỐI CỬA HÀNG THÀNH 1 Ô TICK THEO YÊU CẦU -->
+                        <label class="radio-opt"><input type="radio" name="pA_department" value="Cửa hàng" required> Cửa
+                            hàng (Chuỗi cửa hàng Offline)</label>
                         <label class="radio-opt"><input type="radio" name="pA_department"
                                 value="Kho / Cung ứng / Sản phẩm"> Kho / Cung ứng / Sản phẩm</label>
                         <label class="radio-opt"><input type="radio" name="pA_department"
@@ -305,6 +309,7 @@
 
                 <div class="form-group">
                     <div class="q-title">Bạn đang làm việc tại khu vực nào? <span class="required">*</span></div>
+                    <div class="q-sub">Thông tin này giúp V64 phân tích theo địa bàn — không định danh cá nhân.</div>
                     <div class="radio-group">
                         <label class="radio-opt"><input type="radio" name="pA_region" value="1. Khu vực TP. Hồ Chí Minh"
                                 required> 1. Khu vực TP. Hồ Chí Minh</label>
@@ -318,17 +323,17 @@
                 </div>
 
                 <div
-                    style="background:#FFFBEB;border:1px dashed #D97706;padding:10px 14px;border-radius:6px;font-size:.85rem;color:#B45309">
-                    ⚠️ <strong>Lưu ý:</strong> Để xác nhận bạn đọc kỹ câu hỏi, hãy chọn <strong>số 4</strong> cho câu
-                    hỏi ĐẦU TIÊN của mục 2.2 bên dưới.
+                    style="background:#FFFBEB;border:1px dashed #D97706;padding:12px 16px;border-radius:6px;font-size:.88rem;color:#B45309">
+                    ⚠️ <strong>Lưu ý quan trọng:</strong> Để xác nhận bạn đang đọc kỹ từng câu hỏi, hãy chọn <strong>số
+                        4</strong> cho câu hỏi ĐẦU TIÊN của mục 2.2 bên dưới nhé!
                 </div>
             </div>
 
             <!-- PHẦN 1 -->
             <div class="section-block">
                 <div class="sec-title">🪞 PHẦN 1 — TỰ ĐÁNH GIÁ CỐNG HIẾN</div>
-                <div class="q-sub" style="margin-bottom:14px">Thang điểm 1–10: [1] Rất thấp/Không cố gắng ··· [10] Đã
-                    dốc toàn lực/Rất thường xuyên</div>
+                <div class="q-sub" style="margin-bottom:14px">Thang điểm 1–10: [1] Gần như không cố gắng ··· [10] Đã dốc
+                    toàn lực · ⚠️ Câu có [R] được đặt chiều ngược lại</div>
 
                 <div class="form-group">
                     <div class="q-title">Mức độ nỗ lực & cống hiến tổng thể của tôi trong giai đoạn vừa qua <span
@@ -359,15 +364,16 @@
                 <div class="form-group" style="margin-top:20px">
                     <div class="q-title">✅ Trong 3 tháng qua, kết quả / sáng kiến nổi bật nhất bạn đóng góp cho V64 là
                         gì? <span class="required">*</span></div>
-                    <textarea name="p1_achievements" required
-                        placeholder="Ví dụ: tăng doanh số, đề xuất ý tưởng, hỗ trợ đồng nghiệp..."></textarea>
+                    <div class="q-sub">Ví dụ: tăng doanh số %, đề xuất ý tưởng gì, hỗ trợ đồng nghiệp thế nào...</div>
+                    <textarea name="p1_achievements" required placeholder="Chia sẻ thành tựu của bạn..."></textarea>
                 </div>
 
                 <div class="form-group">
                     <div class="q-title">🚧 Rào cản LỚN NHẤT đang ngăn bạn cống hiến 100% công suất là gì? <span
                             class="required">*</span></div>
-                    <textarea name="p1_barriers" required
-                        placeholder="Ví dụ: thiếu công cụ, quy trình rườm rà, thiếu thông tin..."></textarea>
+                    <div class="q-sub">Ví dụ: thiếu thông tin, quy trình rườm rà, thiếu công cụ, áp lực tài chính, mâu
+                        thuẫn...</div>
+                    <textarea name="p1_barriers" required placeholder="Chia sẻ rào cản bạn đang gặp..."></textarea>
                 </div>
 
                 <div class="form-group">
@@ -402,8 +408,8 @@
                 <div class="sec-title">🌱 PHẦN 2 — MÔI TRƯỜNG LÀM VIỆC & SỨC SỐNG VĂN HÓA</div>
 
                 <div class="form-group">
-                    <div class="q-title">2.1 Đánh giá điều kiện làm việc (Thang điểm 1–5: [1] Kém ··· [5] Rất tốt) <span
-                            class="required">*</span></div>
+                    <div class="q-title">2.1 Đánh giá điều kiện làm việc (Thang điểm 1–5: [1] Hoàn toàn không đáp ứng
+                        ··· [5] Rất tốt) <span class="required">*</span></div>
                     <table class="matrix">
                         <thead>
                             <tr>
@@ -425,7 +431,7 @@
                                 <td><input type="radio" name="p2_grid_facility" value="5"></td>
                             </tr>
                             <tr>
-                                <td>Công cụ & hệ thống hỗ trợ</td>
+                                <td>Công cụ & hệ thống hỗ trợ công việc</td>
                                 <td><input type="radio" name="p2_grid_tools" value="1" required></td>
                                 <td><input type="radio" name="p2_grid_tools" value="2"></td>
                                 <td><input type="radio" name="p2_grid_tools" value="3"></td>
@@ -433,15 +439,15 @@
                                 <td><input type="radio" name="p2_grid_tools" value="5"></td>
                             </tr>
                             <tr>
-                                <td>Thông tin SP & tài liệu bán hàng</td>
-                                <td><input type="radio" name="p2_grid_product_info" value="1" required></td>
-                                <td><input type="radio" name="p2_grid_product_info" value="2"></td>
-                                <td><input type="radio" name="p2_grid_product_info" value="3"></td>
-                                <td><input type="radio" name="p2_grid_product_info" value="4"></td>
-                                <td><input type="radio" name="p2_grid_product_info" value="5"></td>
+                                <td>Thông tin sản phẩm & tài liệu bán hàng</td>
+                                <td><input type="radio" name="p2_grid_prod_info" value="1" required></td>
+                                <td><input type="radio" name="p2_grid_prod_info" value="2"></td>
+                                <td><input type="radio" name="p2_grid_prod_info" value="3"></td>
+                                <td><input type="radio" name="p2_grid_prod_info" value="4"></td>
+                                <td><input type="radio" name="p2_grid_prod_info" value="5"></td>
                             </tr>
                             <tr>
-                                <td>Quy trình nội bộ rõ ràng</td>
+                                <td>Quy trình nội bộ rõ ràng, không rườm rà</td>
                                 <td><input type="radio" name="p2_grid_process" value="1" required></td>
                                 <td><input type="radio" name="p2_grid_process" value="2"></td>
                                 <td><input type="radio" name="p2_grid_process" value="3"></td>
@@ -450,55 +456,60 @@
                             </tr>
                             <tr>
                                 <td>Khả năng tiếp cận dữ liệu</td>
-                                <td><input type="radio" name="p2_grid_data_access" value="1" required></td>
-                                <td><input type="radio" name="p2_grid_data_access" value="2"></td>
-                                <td><input type="radio" name="p2_grid_data_access" value="3"></td>
-                                <td><input type="radio" name="p2_grid_data_access" value="4"></td>
-                                <td><input type="radio" name="p2_grid_data_access" value="5"></td>
+                                <td><input type="radio" name="p2_grid_data" value="1" required></td>
+                                <td><input type="radio" name="p2_grid_data" value="2"></td>
+                                <td><input type="radio" name="p2_grid_data" value="3"></td>
+                                <td><input type="radio" name="p2_grid_data" value="4"></td>
+                                <td><input type="radio" name="p2_grid_data" value="5"></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
-                <div class="q-title" style="margin-top:20px;color:var(--teal)">2.2 Sức sống Văn hóa Doanh nghiệp (Thang
-                    1–10)</div>
+                <div class="q-title" style="margin-top:22px;color:var(--teal)">2.2 Sức sống Văn hóa Doanh nghiệp (Thang
+                    điểm 1–10)</div>
                 <div class="form-group">
                     <div class="q-title">Tôi hiểu rõ định hướng và mục tiêu của V64 trong giai đoạn này <span
-                            class="required">* (Chú ý: Chọn 4)</span></div>
-                    <div class="scale-wrap" id="sc_culture_attn"></div>
+                            class="required">* (Lưu ý: Chọn số 4)</span></div>
+                    <div class="scale-wrap" id="sc_c_goal"></div>
                 </div>
                 <div class="form-group">
                     <div class="q-title">Ban Lãnh Đạo chia sẻ thông tin minh bạch, trung thực với nhân viên <span
                             class="required">*</span></div>
-                    <div class="scale-wrap" id="sc_culture_transparent"></div>
+                    <div class="scale-wrap" id="sc_c_trans"></div>
                 </div>
                 <div class="form-group">
                     <div class="q-title">Đồng nghiệp hỗ trợ nhau trong lúc khó khăn <span class="required">*</span>
                     </div>
-                    <div class="scale-wrap" id="sc_culture_support"></div>
+                    <div class="scale-wrap" id="sc_c_support"></div>
                 </div>
                 <div class="form-group">
                     <div class="q-title">V64 có văn hóa "trách nhiệm" hơn là "đổ lỗi" <span class="required">*</span>
                     </div>
-                    <div class="scale-wrap" id="sc_culture_accountable"></div>
+                    <div class="scale-wrap" id="sc_c_resp"></div>
                 </div>
                 <div class="form-group">
                     <div class="q-title">Tôi cảm thấy ý kiến của mình được lắng nghe và tôn trọng <span
                             class="required">*</span></div>
-                    <div class="scale-wrap" id="sc_culture_listened"></div>
+                    <div class="scale-wrap" id="sc_c_listen"></div>
+                </div>
+                <div class="form-group">
+                    <div class="q-title">Tôi tự hào khi giới thiệu bản thân là nhân viên V64 <span
+                            class="required">*</span></div>
+                    <div class="scale-wrap" id="sc_c_proud"></div>
                 </div>
                 <div class="form-group">
                     <div class="q-title"><span class="r-badge">[R]</span> Thông tin tại V64 thường bị giấu kín, không
                         được chia sẻ minh bạch <span class="required">*</span></div>
-                    <div class="scale-wrap" id="sc_r_culture_hidden"></div>
+                    <div class="scale-wrap" id="sc_c_hide"></div>
                 </div>
 
-                <div class="q-title" style="margin-top:20px;color:var(--pur)">2.3 Mức độ Gắn bó & An toàn tâm lý (Thang
-                    1–10)</div>
+                <div class="q-title" style="margin-top:22px;color:var(--pur)">2.3 Mức độ Gắn bó & Hài lòng tổng thể
+                    (Thang điểm 1–10)</div>
                 <div class="form-group">
                     <div class="q-title">Tôi hài lòng với công việc hiện tại tại V64 <span class="required">*</span>
                     </div>
-                    <div class="scale-wrap" id="sc_sat_overall"></div>
+                    <div class="scale-wrap" id="sc_sat_job"></div>
                 </div>
                 <div class="form-group">
                     <div class="q-title">Tôi có kế hoạch gắn bó với V64 trong 12 tháng tới <span
@@ -506,21 +517,60 @@
                     <div class="scale-wrap" id="sc_stay_12m"></div>
                 </div>
                 <div class="form-group">
-                    <div class="q-title">Tại V64, tôi có thể nêu vấn đề khó nói mà không sợ bị trả thù <span
+                    <div class="q-title">Nếu có cơ hội tốt hơn từ công ty khác, tôi sẽ cân nhắc rời đi <span
                             class="required">*</span></div>
-                    <div class="scale-wrap" id="sc_safe_speakup"></div>
+                    <div class="scale-wrap" id="sc_leave_opp"></div>
                 </div>
                 <div class="form-group">
-                    <div class="q-title">Tôi cảm thấy cạn kiệt năng lượng sau một ngày làm việc tại V64 <span
+                    <div class="q-title">Tôi sẵn sàng giới thiệu V64 là nơi làm việc tốt cho bạn bè <span
                             class="required">*</span></div>
-                    <div class="scale-wrap" id="sc_burnout"></div>
+                    <div class="scale-wrap" id="sc_refer_friend"></div>
                 </div>
 
                 <div class="form-group">
                     <div class="q-title">💬 Điều kiện tối thiểu nào khiến bạn sẵn sàng gắn bó lâu dài hơn với V64? <span
                             class="required">*</span></div>
-                    <textarea name="p2_condition_to_stay" required
-                        placeholder="Chia sẻ thật thẳng thắn những nguyện vọng của bạn..."></textarea>
+                    <div class="q-sub">Đây là thông tin quan trọng nhất để công ty cải thiện, hãy chia sẻ thật lòng nhé.
+                    </div>
+                    <textarea name="p2_stay_condition" required
+                        placeholder="Chia sẻ suy nghĩ chân thành của bạn..."></textarea>
+                </div>
+
+                <div class="q-title" style="margin-top:22px;color:var(--dark)">2.4 An toàn Tâm lý (Thang điểm 1–10)
+                </div>
+                <div class="form-group">
+                    <div class="q-title">Tại V64, tôi có thể nêu vấn đề khó nói mà không sợ bị trả thù <span
+                            class="required">*</span></div>
+                    <div class="scale-wrap" id="sc_safe_speak"></div>
+                </div>
+                <div class="form-group">
+                    <div class="q-title">Tại V64, việc thừa nhận không biết hoặc nhờ giúp đỡ được chấp nhận bình thường
+                        <span class="required">*</span>
+                    </div>
+                    <div class="scale-wrap" id="sc_safe_help"></div>
+                </div>
+                <div class="form-group">
+                    <div class="q-title">Khi mắc lỗi, phản ứng của tổ chức giúp tôi học hỏi, không làm tôi sợ hãi <span
+                            class="required">*</span></div>
+                    <div class="scale-wrap" id="sc_safe_mistake"></div>
+                </div>
+
+                <div class="q-title" style="margin-top:22px;color:var(--red)">2.5 Cảm nhận công việc gần đây (Burnout -
+                    Thang điểm 1–10)</div>
+                <div class="form-group">
+                    <div class="q-title">Tôi cảm thấy cạn kiệt hoàn toàn sau một ngày làm việc tại V64 <span
+                            class="required">*</span></div>
+                    <div class="scale-wrap" id="sc_bo_exhausted"></div>
+                </div>
+                <div class="form-group">
+                    <div class="q-title">Tôi cảm thấy mệt mỏi ngay cả trước khi bắt đầu ngày làm việc <span
+                            class="required">*</span></div>
+                    <div class="scale-wrap" id="sc_bo_tired_start"></div>
+                </div>
+                <div class="form-group">
+                    <div class="q-title">Tôi trở nên hoài nghi hơn về ý nghĩa của công việc mình đang làm <span
+                            class="required">*</span></div>
+                    <div class="scale-wrap" id="sc_bo_cynical"></div>
                 </div>
             </div>
 
@@ -530,10 +580,9 @@
     </div>
 
     <script>
-        // ĐIỀN LINK WEB APP CỦA BẠN VÀO ĐÂY:
+        // DÁN LINK GOOGLE APPS SCRIPT WEB APP CỦA BẠN VÀO ĐÂY:
         const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby4HfwSxKzyVRmt2rDXF-R7xxRDSKjqTRjUAscqNRspW8NS2BsaHcOlz4_ekxYKmFgw/exec";
 
-        // Hàm tự động tạo hàng nút Scale 1-10
         function buildScale(containerId, name) {
             const box = document.getElementById(containerId);
             if (!box) return;
@@ -544,35 +593,31 @@
             box.innerHTML = html;
         }
 
-        // Khởi tạo các câu thang 1-10
+        // Tự động khởi tạo các thang 1-10
         buildScale('sc_effort', 'p1_effort_overall');
         buildScale('sc_proactive', 'p1_proactive');
         buildScale('sc_share_idea', 'p1_share_idea');
         buildScale('sc_r_effort1', 'p1_r_slack_ok');
         buildScale('sc_r_effort2', 'p1_r_bare_minimum');
-        buildScale('sc_culture_attn', 'p2_culture_goal_attn');
-        buildScale('sc_culture_transparent', 'p2_culture_transparent');
-        buildScale('sc_culture_support', 'p2_culture_support');
-        buildScale('sc_culture_accountable', 'p2_culture_accountable');
-        buildScale('sc_culture_listened', 'p2_culture_listened');
-        buildScale('sc_r_culture_hidden', 'p2_r_culture_hidden');
-        buildScale('sc_sat_overall', 'p2_sat_overall');
+        buildScale('sc_c_goal', 'p2_c_goal_attn');
+        buildScale('sc_c_trans', 'p2_c_transparent');
+        buildScale('sc_c_support', 'p2_c_support');
+        buildScale('sc_c_resp', 'p2_c_responsible');
+        buildScale('sc_c_listen', 'p2_c_listened');
+        buildScale('sc_c_proud', 'p2_c_proud');
+        buildScale('sc_c_hide', 'p2_r_c_hidden');
+        buildScale('sc_sat_job', 'p2_sat_job');
         buildScale('sc_stay_12m', 'p2_stay_12m');
-        buildScale('sc_safe_speakup', 'p2_safe_speakup');
-        buildScale('sc_burnout', 'p2_burnout');
+        buildScale('sc_leave_opp', 'p2_leave_opp');
+        buildScale('sc_refer_friend', 'p2_refer_friend');
+        buildScale('sc_safe_speak', 'p2_safe_speak');
+        buildScale('sc_safe_help', 'p2_safe_help');
+        buildScale('sc_safe_mistake', 'p2_safe_mistake');
+        buildScale('sc_bo_exhausted', 'p2_burnout_exhausted');
+        buildScale('sc_bo_tired_start', 'p2_burnout_tired_start');
+        buildScale('sc_bo_cynical', 'p2_burnout_cynical');
 
-        // Kiểm tra nếu đã hoàn thành Phần 1 thì tự chuyển sang Phần 2
-        (function checkDone() {
-            const isP1Done = localStorage.getItem("V64_P1_DONE");
-            const sid = localStorage.getItem("V64_SURVEY_ID");
-            if (isP1Done === "true" && sid) {
-                if (confirm("Bạn đã nộp thành công Phần 1 trước đó. Bạn có muốn chuyển ngay sang Phần 2/2 không?")) {
-                    window.location.href = `part2.html?sid=${encodeURIComponent(sid)}`;
-                }
-            }
-        })();
-
-        // Xử lý nộp form
+        // Xử lý nộp Phần 1
         const form = document.getElementById('formPart1');
         const submitBtn = document.getElementById('btnSubmitP1');
 
@@ -592,7 +637,7 @@
             });
 
             submitBtn.disabled = true;
-            submitBtn.textContent = "⏳ Đang ghi nhận dữ liệu Phần 1...";
+            submitBtn.textContent = "⏳ Đang ghi nhận kết quả Phần 1...";
 
             try {
                 const response = await fetch(SCRIPT_URL, {
@@ -610,7 +655,7 @@
                     localStorage.setItem("V64_SURVEY_ID", surveyId);
                     localStorage.setItem("V64_P1_DONE", "true");
 
-                    alert("✅ Đã hoàn tất và lưu dữ liệu Phần 1!\nHệ thống sẽ chuyển bạn sang Phần 2/2.");
+                    alert("✅ Dữ liệu Phần 1 đã được lưu an toàn!\nBấm OK để tiếp tục sang Phần 2/2.");
                     window.location.href = `part2.html?sid=${encodeURIComponent(surveyId)}`;
                 } else {
                     alert("Lỗi: " + res.message);
